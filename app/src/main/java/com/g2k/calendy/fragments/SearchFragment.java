@@ -1,4 +1,4 @@
-package com.g2k.calendy;
+package com.g2k.calendy.fragments;
 
 import android.os.Bundle;
 
@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.g2k.calendy.R;
 
 /**
  * A simple {@link Fragment} subclass.

@@ -7,13 +7,17 @@ import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Toast;
 
-import com.getbase.floatingactionbutton.FloatingActionButton;
+import com.g2k.calendy.fragments.CalendarsFragment;
+import com.g2k.calendy.fragments.HomeFragment;
+import com.g2k.calendy.fragments.SearchFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.snackbar.Snackbar;
 
+/**
+ * Main activity for fragments and bottom navigation menu
+ * @author Mehmet Kağan İlbak
+ * @version 2021/04/23
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -23,22 +27,22 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNav = findViewById(R.id.nav_bottom);
         bottomNav.setOnNavigationItemSelectedListener(navListener); // add listener
-        bottomNav.setSelectedItemId(R.id.nav_today); // set default selected to home
+        bottomNav.setSelectedItemId(R.id.nav_home); // set default bottom nav selected to home
 
         // Set default fragment to home
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                 new HomeFragment()).commit();
-
     }
 
-    private BottomNavigationView.OnNavigationItemSelectedListener navListener =
+    // Listener for bottom navigation
+    private final BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                     Fragment selectedFragment = null;
 
                     switch (item.getItemId()) {
-                        case R.id.nav_today:
+                        case R.id.nav_home:
                             selectedFragment = new HomeFragment();
                             break;
                         case R.id.nav_calendars:

@@ -6,7 +6,7 @@
         android:icon="@drawable/ic_baseline_my_calendars_24"
         android:title="@string/bottom_menu_calendars"/>
     <item
-        android:id="@+id/nav_today"
+        android:id="@+id/nav_home"
         android:icon="@drawable/ic_baseline_home_24"
         android:title="@string/bottom_menu_home"/>
     <item
