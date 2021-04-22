@@ -1,4 +1,4 @@
-package com.g2k.calendy;
+package com.g2k.calendy.fragments;
 
 import android.os.Bundle;
 
@@ -9,12 +9,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.g2k.calendy.R;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 
 /**
- * A simple {@link Fragment} subclass.
- * Use the {@link HomeFragment#newInstance} factory method to
- * create an instance of this fragment.
+ * Home fragment for displaying events & creating new ones
+ * using floating action button (fab)
+ * @author Mehmet Kağan İlbak
+ * @version 2021/04/23
  */
 public class HomeFragment extends Fragment {
 
@@ -77,7 +79,8 @@ public class HomeFragment extends Fragment {
         return view;
     }
 
-    View.OnClickListener fabListener = new View.OnClickListener() {
+    // TODO fab intents
+    private final View.OnClickListener fabListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
