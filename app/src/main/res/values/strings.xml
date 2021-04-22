@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Calendy</string>
-    <string name="bottom_menu_today">Today</string>
+    <string name="bottom_menu_home">Home</string>
     <string name="bottom_menu_calendars">Calendars</string>
     <string name="bottom_menu_search">Search</string>
     <!-- TODO: Remove or change this placeholder text -->
