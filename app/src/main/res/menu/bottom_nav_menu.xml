@@ -7,8 +7,8 @@
         android:title="@string/bottom_menu_calendars"/>
     <item
         android:id="@+id/nav_today"
-        android:icon="@drawable/ic_baseline_calendar_view_day_24"
-        android:title="@string/bottom_menu_today"/>
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="@string/bottom_menu_home"/>
     <item
         android:id="@+id/nav_search"
         android:icon="@drawable/ic_baseline_search_24"
