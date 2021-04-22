@@ -29,13 +29,13 @@
             app:fab_title="Goal"/>
 
         <com.getbase.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab_remainder"
+            android:id="@+id/fab_reminder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:fab_colorNormal="@color/purple_500"
             app:fab_colorPressed="@color/purple_200"
-            app:fab_icon="@drawable/ic_outline_add_remainder_24"
-            app:fab_title="Remainder"/>
+            app:fab_icon="@drawable/ic_outline_add_reminder_24"
+            app:fab_title="Reminder"/>
 
         <com.getbase.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_event"

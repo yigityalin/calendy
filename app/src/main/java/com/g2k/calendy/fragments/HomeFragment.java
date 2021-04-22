@@ -69,7 +69,7 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         FloatingActionButton fabGoal = view.findViewById(R.id.fab_goal);
-        FloatingActionButton fabTask = view.findViewById(R.id.fab_remainder);
+        FloatingActionButton fabTask = view.findViewById(R.id.fab_reminder);
         FloatingActionButton fabEvent = view.findViewById(R.id.fab_event);
 
         fabGoal.setOnClickListener(fabListener);
@@ -87,7 +87,7 @@ public class HomeFragment extends Fragment {
                 case R.id.fab_event:
                     Toast.makeText(getContext(), "Event!", Toast.LENGTH_SHORT).show();
                     break;
-                case R.id.fab_remainder:
+                case R.id.fab_reminder:
                     Toast.makeText(getContext(), "Task!", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.fab_goal:
