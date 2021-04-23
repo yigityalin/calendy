@@ -2,6 +2,9 @@ package com.g2k.calendy.utils;
 
 import java.util.Date;
 
+/**
+ * User class
+ */
 public class User {
     String uid;
     String email;

@@ -12,5 +12,4 @@ package com.g2k.calendy.utils;
  *     from Firebase
  */
 public class DatabaseHelper {
-
 }
