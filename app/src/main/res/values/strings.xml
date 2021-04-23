@@ -7,5 +7,13 @@
     <string name="hello_today_fragment">Hello today fragment</string>
     <string name="hello_calendars_fragment">Hello calendars fragment</string>
     <string name="hello_search_fragment">Hello search fragment</string>
+    <string name="calendar">Calendar</string>
+    <string name="add_button_text">Add</string>
+    <string name="add_event_description_hint">Some Cool Event</string>
+    <string name="add_event_text_start_time">Start Time</string>
+    <string name="add_event_text_end_time">End Time</string>
+    <string name="add_reminder_time_text">Remind me on</string>
+    <string name="date">Date</string>
+    <string name="remind_me_to">Remind me to</string>
 
 </resources>

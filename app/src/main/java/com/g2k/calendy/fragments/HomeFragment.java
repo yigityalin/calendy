@@ -1,5 +1,6 @@
 package com.g2k.calendy.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,10 +8,14 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.g2k.calendy.AddNewEventActivity;
+import com.g2k.calendy.AddNewReminderActivity;
 import com.g2k.calendy.R;
 import com.getbase.floatingactionbutton.FloatingActionButton;
+import com.getbase.floatingactionbutton.FloatingActionsMenu;
 
 /**
  * Home fragment for displaying events & creating new ones
@@ -58,8 +63,6 @@ public class HomeFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
-
     }
 
     @Override
@@ -83,15 +86,19 @@ public class HomeFragment extends Fragment {
     private final View.OnClickListener fabListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            Intent intent;
+
             switch (v.getId()) {
                 case R.id.fab_event:
-                    Toast.makeText(getContext(), "Event!", Toast.LENGTH_SHORT).show();
+                    intent = new Intent(getContext(), AddNewEventActivity.class);
+                    startActivity(intent);
                     break;
                 case R.id.fab_reminder:
-                    Toast.makeText(getContext(), "Task!", Toast.LENGTH_SHORT).show();
+                    intent = new Intent(getContext(), AddNewReminderActivity.class);
+                    startActivity(intent);
                     break;
                 case R.id.fab_goal:
-                    Toast.makeText(getContext(), "Goal!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "TODO GOAL ACTIVITY", Toast.LENGTH_SHORT).show();
                     break;
             }
         }
