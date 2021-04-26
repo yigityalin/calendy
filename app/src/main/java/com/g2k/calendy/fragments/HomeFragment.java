@@ -87,6 +87,7 @@ public class HomeFragment extends Fragment {
         FloatingActionButton fabEvent = view.findViewById(R.id.fab_event);
 
         switchToMonthViewButton.setText(CurrentDate.getCurrentDate());
+        switchToDayViewButton.setText(CurrentDate.getCurrentDate());
 
         switchToMonthViewButton.setOnClickListener(viewSwitchButtonListener);
         switchToDayViewButton.setOnClickListener(viewSwitchButtonListener);

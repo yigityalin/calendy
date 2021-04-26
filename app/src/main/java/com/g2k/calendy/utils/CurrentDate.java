@@ -27,6 +27,10 @@ public class CurrentDate {
             "December"
     };
 
+    /**
+     * gets the current date and parses it into Month + Day
+     * @return a string containing the current month and day
+     */
     @RequiresApi(api = Build.VERSION_CODES.O)
     public static String getCurrentDate()
     {
@@ -34,7 +38,7 @@ public class CurrentDate {
         String formattedDate;
 
         now = LocalDate.now();
-        formattedDate = String.valueOf(now.getMonth()) + " " + String.valueOf(now.getDayOfMonth());
+        formattedDate = now.getMonth() + " " + now.getDayOfMonth();
 
         return formattedDate;
     }
