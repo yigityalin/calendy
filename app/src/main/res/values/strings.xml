@@ -15,5 +15,7 @@
     <string name="add_reminder_time_text">Remind me on</string>
     <string name="date">Date</string>
     <string name="remind_me_to">Remind me to</string>
+    <string name="top_bar_prev_day_button"><![CDATA[<]]></string>
+    <string name="top_bar_next_day_button"><![CDATA[>]]></string>
 
 </resources>
