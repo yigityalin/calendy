@@ -9,7 +9,14 @@
         android:roundIcon="@mipmap/icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.Calendy">
-        <activity android:name=".AddNewGoalActivity"></activity>
+        <activity
+            android:name=".ui.login.signupPage"
+            android:label="@string/title_activity_signup_page"></activity>
+        <activity
+            android:name=".ui.login.loginPage"
+            android:label="@string/title_activity_login_page" />
+        <activity android:name=".welcome_page" />
+        <activity android:name=".AddNewGoalActivity" />
         <activity
             android:name=".AddNewReminderActivity"
             android:label="Add New Reminder"
