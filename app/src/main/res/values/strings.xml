@@ -39,5 +39,6 @@
     <string name="user_city">City</string>
     <string name="user_university_name">University Name</string>
     <string name="sign_up_text">SIGN UP</string>
-
+    <string name="top_bar_prev_day_button"><![CDATA[<]]></string>
+    <string name="top_bar_next_day_button"><![CDATA[>]]></string>
 </resources>
