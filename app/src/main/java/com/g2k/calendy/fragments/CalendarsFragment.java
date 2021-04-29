@@ -3,19 +3,26 @@ package com.g2k.calendy.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.g2k.calendy.CalendarAdapter;
 import com.g2k.calendy.R;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link CalendarsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CalendarsFragment extends Fragment {
+public class CalendarsFragment extends Fragment
+{
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -23,6 +30,10 @@ public class CalendarsFragment extends Fragment {
     private static final String ARG_PARAM2 = "param2";
 
     // TODO: Rename and change types of parameters
+    RecyclerView calendarsView;
+    CalendarAdapter calendarAdapter;
+    ArrayList<String> dataSet;
+
     private String mParam1;
     private String mParam2;
 
@@ -55,12 +66,39 @@ public class CalendarsFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+        // TODO: fix calendar dataset when database is connected
+        dataSet = new ArrayList<>();
+        dataSet.add("test1");
+        dataSet.add("test2");
+        dataSet.add("test3");
+        dataSet.add("test4");
+        dataSet.add("test5");
+        dataSet.add("test6");
+        dataSet.add("test7");
+        dataSet.add("test8");
+        dataSet.add("test9");
+        dataSet.add("test10");
+        dataSet.add(0,"Create New Calendar");
+        calendarAdapter = new CalendarAdapter(dataSet);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+                             Bundle savedInstanceState)
+    {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_calendars, container, false);
+        View view = inflater.inflate(R.layout.fragment_calendars, container, false);
+
+        calendarsView = view.findViewById(R.id.calendars_view);
+        calendarsView.setAdapter(calendarAdapter);
+        calendarsView.setLayoutManager(new GridLayoutManager(
+                this.getContext(),
+                2,
+                RecyclerView.VERTICAL,
+                false
+                ));
+
+        return view;
     }
 }
