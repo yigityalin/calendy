@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">Calendy</string>
+    <string name="bottom_menu_home">Home</string>
+    <string name="bottom_menu_calendars">Calendars</string>
+    <string name="bottom_menu_search">Search</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_today_fragment">Hello today fragment</string>
+    <string name="hello_calendars_fragment">Hello calendars fragment</string>
+    <string name="hello_search_fragment">Hello search fragment</string>
+    <string name="calendar">Calendar</string>
+    <string name="add_button_text">Add</string>
+    <string name="add_event_description_hint">Some Cool Event</string>
+    <string name="add_event_text_start_time">Start Time</string>
+    <string name="add_event_text_end_time">End Time</string>
+    <string name="add_reminder_time_text">Remind me on</string>
+    <string name="date">Date</string>
+    <string name="remind_me_to">Remind me to</string>
+    <string name="calendy_text">Calendy</string>
+    <string name="welcome_to_calendy">Welcome to Calendy!</string>
+    <string name="log_in_text">Log In</string>
+    <string name="sign_up_text">SIGN UP</string>
+    <string name="welcome_question">How do you wish to proceed?</string>
+    <string name="title_activity_login_page">loginPage</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="login_icon_text">login icon</string>
+    <string name="login_back_text">login back</string>
+    <string name="log_in_button_text">LOG IN</string>
+    <string name="forgot_your_password_text">Forgot your password?</string>
+    <string name="title_activity_signup_page">signupPage</string>
+    <string name="date_of_birth">Date Of Birth</string>
+    <string name="user_name">Name</string>
+    <string name="user_city">City</string>
+    <string name="user_university_name">University Name</string>
+=======
+>>>>>>> 7be10a45d70a0e2180b4be958cdf4ebfc9814b44
+    <string name="top_bar_prev_day_button"><![CDATA[<]]></string>
+    <string name="top_bar_next_day_button"><![CDATA[>]]></string>
+
+</resources>
