@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 
 import com.g2k.calendy.utils.DatePickerButton;
 import com.g2k.calendy.utils.TimePickerButton;
@@ -16,12 +17,14 @@ import com.g2k.calendy.utils.TimePickerButton;
 public class AddNewReminderActivity extends AppCompatActivity {
     private DatePickerButton datePickerButton;
     private TimePickerButton timePickerButton;
+    private EditText description;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_reminder);
 
+        description = findViewById(R.id.add_reminder_description);
         datePickerButton = new DatePickerButton(this, findViewById(R.id.add_reminder_date_picker_button));
         timePickerButton = new TimePickerButton(this, findViewById(R.id.add_reminder_time_picker_button));
         findViewById(R.id.add_new_reminder_button).setOnClickListener(listener);

@@ -20,6 +20,7 @@ import android.widget.Toast;
 import android.widget.ViewSwitcher;
 
 import com.g2k.calendy.AddNewEventActivity;
+import com.g2k.calendy.AddNewGoalActivity;
 import com.g2k.calendy.AddNewReminderActivity;
 import com.g2k.calendy.R;
 import com.g2k.calendy.utils.CurrentDate;
@@ -127,19 +128,15 @@ public class HomeFragment extends Fragment {
     private final View.OnClickListener fabListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent;
-
             switch (v.getId()) {
                 case R.id.fab_event:
-                    intent = new Intent(getContext(), AddNewEventActivity.class);
-                    startActivity(intent);
+                    startActivity(new Intent(getContext(), AddNewEventActivity.class));
                     break;
                 case R.id.fab_reminder:
-                    intent = new Intent(getContext(), AddNewReminderActivity.class);
-                    startActivity(intent);
+                    startActivity(new Intent(getContext(), AddNewReminderActivity.class));
                     break;
                 case R.id.fab_goal:
-                    Toast.makeText(getContext(), "TODO GOAL ACTIVITY", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getContext(), AddNewGoalActivity.class));
                     break;
             }
         }

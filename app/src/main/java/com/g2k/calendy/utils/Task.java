@@ -2,18 +2,23 @@ package com.g2k.calendy.utils;
 
 import java.util.Date;
 
+/**
+ * Abstract Task class for Event, Reminder, Goal
+ * @author Mehmet Kağan İlbak
+ * @version 2021/04/29
+ */
 public abstract class Task {
-    String name;
+    String description;
     Date taskDate;
     Date startDate;
     Date endDate;
 
     public String getName() {
-        return name;
+        return description;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.description = name;
     }
 
     public Date getTaskDate() {
