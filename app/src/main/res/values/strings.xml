@@ -17,5 +17,12 @@
     <string name="remind_me_to">Remind me to</string>
     <string name="top_bar_prev_day_button"><![CDATA[<]]></string>
     <string name="top_bar_next_day_button"><![CDATA[>]]></string>
+    <string name="my_next_goal">My next goal!</string>
+    <string name="end_time">End Time</string>
+    <string name="start_time">Start Time</string>
+    <string name="_10">10</string>
+    <string name="target">Target</string>
+    <string name="goal_description">Goal Description</string>
+    <string name="event_description">Event Description</string>
 
 </resources>

@@ -19,6 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
+            android:textSize="32sp"
             android:text="@string/calendar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -38,6 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
+            android:textSize="32sp"
             android:text="Event Description"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/add_event_calendar_spinner" />
@@ -48,6 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
+            android:textSize="24sp"
             android:ems="10"
             android:hint="@string/add_event_description_hint"
             android:inputType="textPersonName"
@@ -60,6 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
+            android:textSize="32sp"
             android:text="Date"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/add_event_description" />
@@ -70,6 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="32dp"
             android:layout_marginTop="32dp"
+            android:textSize="24sp"
             android:text="JAN 01 2021"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/add_reminder_date_text" />
@@ -80,6 +85,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
+            android:textSize="24sp"
             android:text="@string/add_event_text_start_time"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/add_event_date_picker_button" />
@@ -90,7 +96,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
-            android:text="12:00"
+            android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
@@ -100,6 +106,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="32dp"
+            android:textSize="24sp"
             android:text="@string/add_event_text_end_time"
             android:textAlignment="textEnd"
             app:layout_constraintEnd_toEndOf="parent"
@@ -112,7 +119,7 @@
             android:layout_marginTop="32dp"
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="32dp"
-            android:text="12:00"
+            android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
@@ -123,6 +130,7 @@
             android:layout_marginHorizontal="32dp"
             android:layout_marginTop="32dp"
             android:layout_marginBottom="32dp"
+            android:textSize="32sp"
             android:text="@string/add_button_text"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
