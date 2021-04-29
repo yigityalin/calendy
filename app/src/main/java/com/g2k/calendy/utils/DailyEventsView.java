@@ -12,6 +12,7 @@ import androidx.constraintlayout.widget.Constraints;
 
 /**
  * a constraint layout subclass to a show daily event
+ *
  * @author Yiğit Yalın
  * @version 2021/04/26
  */
@@ -36,10 +37,10 @@ public class DailyEventsView extends ConstraintLayout {
 
     private final int EVENT_COLOR = Color.RED;
 
-    private TextView eventHeader;
-    private TextView eventTime;
-    private TextView eventDescription;
-    private ConstraintLayout.LayoutParams layoutParams;
+    private final TextView eventHeader;
+    private final TextView eventTime;
+    private final TextView eventDescription;
+    private final ConstraintLayout.LayoutParams layoutParams;
 
     public DailyEventsView(@NonNull Context context,
                            @NonNull String eventHeaderText,
