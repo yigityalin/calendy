@@ -10,4 +10,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="calendy_purple">#440080</color>
+    <color name="orange">#FFA500</color>
+    <color name="coral">#FF7F50</color>
 </resources>
