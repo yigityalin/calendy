@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#673ADC"
-    tools:context=".WelcomePageActivity">
+    tools:context=".StartActivity">
 
     <TextView
         android:id="@+id/welcome_text2"
