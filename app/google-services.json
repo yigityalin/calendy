@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "554038531275",
-    "project_id": "calendy-1aac8",
-    "storage_bucket": "calendy-1aac8.appspot.com"
+    "project_number": "558335324673",
+    "project_id": "calendy-67eed",
+    "storage_bucket": "calendy-67eed.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:554038531275:android:98bfe6e14370ec5670f74e",
+        "mobilesdk_app_id": "1:558335324673:android:fe84936dfc1a8239178600",
         "android_client_info": {
           "package_name": "com.g2k.calendy"
         }
       },
       "oauth_client": [
         {
-          "client_id": "554038531275-3fdeoeq73uiegvd4g8cq70mt52q802s9.apps.googleusercontent.com",
+          "client_id": "558335324673-942ocg81bu8cf9k6g1tg2st4ts84enp0.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB6M26OBOdtgrbLaOwuQuetewhmNHauFac"
+          "current_key": "AIzaSyD2WBHD3bXuoy08xtrChIyMZeKSBsUgLA0"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "554038531275-3fdeoeq73uiegvd4g8cq70mt52q802s9.apps.googleusercontent.com",
+              "client_id": "558335324673-942ocg81bu8cf9k6g1tg2st4ts84enp0.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
