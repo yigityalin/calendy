@@ -18,7 +18,8 @@ viewing upcoming tasks on the home screen.
 
 Contributions:
 
-Cem Gülümser 22003430 -
+Cem Gülümser 22003430 - Implemented Welcome Page (Start Activity), Sign Up and Log In interfaces 
+and their activities. Set navigation from welcome page to login or signup page.
 
 Mehmet Kağan İlbak 22002379 - Implemented navigation, floating action menu and its activities;
 implemented Date/TimePickerButton, User, Task (and its subclasses), Calendar classes.
