@@ -11,7 +11,7 @@
         android:theme="@style/Theme.Calendy">
         <activity android:name=".SignupActivity" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".WelcomePageActivity">
+        <activity android:name=".StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
