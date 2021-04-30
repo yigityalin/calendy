@@ -27,4 +27,4 @@ Emir Kurban 21902653 -
 
 Yiğit Yalın 22002178 -
 
-Yarkın Ergin 21902462 -
+Yarkın Ergin 21902462 - Added preferences for settings ui.
