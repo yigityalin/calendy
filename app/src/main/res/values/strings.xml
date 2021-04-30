@@ -57,8 +57,8 @@
     <string name="user_name">Name</string>
     <string name="user_city">City</string>
     <string name="user_university_name">University Name</string>
-=======
->>>>>>> 7be10a45d70a0e2180b4be958cdf4ebfc9814b44
+    =======
+    >>>>>>> 7be10a45d70a0e2180b4be958cdf4ebfc9814b44
     <string name="top_bar_prev_day_button"><![CDATA[<]]></string>
     <string name="top_bar_next_day_button"><![CDATA[>]]></string>
     <string name="my_next_goal">My next goal!</string>
