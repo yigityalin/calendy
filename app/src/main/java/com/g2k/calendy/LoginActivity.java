@@ -5,17 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class welcome_page extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_welcome_page);
+        setContentView(R.layout.activity_login);
     }
 
-    public void logInAction(View view) {
-    }
-
-    public void signUpAction(View view) {
+    public void goBack(View view) {
+        finish();
     }
 }
