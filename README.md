@@ -25,6 +25,6 @@ implemented Date/TimePickerButton, User, Task (and its subclasses), Calendar cla
 
 Emir Kurban 21902653 -
 
-Yiğit Yalın 22002178 -
+Yiğit Yalın 22002178 - Implemented calendar UI for month and day views in home fragment, implemented UI for Calendars fragment
 
 Yarkın Ergin 21902462 - Added preferences for settings ui.
