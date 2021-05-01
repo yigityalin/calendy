@@ -26,7 +26,7 @@ import java.util.Date;
 
 /**
  * Signup Activity
- * @author Mehmet Kağan İlbak
+ * @author Mehmet Kağan İlbak & Mustafa Cem Gülümser
  * @version 2021/05/01
  */
 public class SignupActivity extends AppCompatActivity implements View.OnClickListener {

@@ -20,7 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 /**
  * Login Activity
- * @author Mehmet Kağan İlbak
+ * @author Mehmet Kağan İlbak & Mustafa Cem Gülümser
  * @version 2021/05/01
  */
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
