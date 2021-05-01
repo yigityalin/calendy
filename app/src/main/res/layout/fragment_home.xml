@@ -6,109 +6,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.HomeFragment">
 
-    <ViewSwitcher
-        android:id="@+id/view_switcher_home"
+
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/day_view_home"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <Button
-                android:id="@+id/prev_day_button"
-                android:layout_width="75dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                android:text="@string/top_bar_prev_day_button"
-                android:background="@drawable/top_bar_prev_day_button_background"
-                />
-
-            <Button
-                android:id="@+id/switch_to_month_view"
-                android:layout_height="wrap_content"
-                android:layout_width="262dp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintLeft_toRightOf="@id/prev_day_button"
-                app:layout_constraintRight_toLeftOf="@id/next_day_button"
-                android:background="@color/calendy_purple"
-                />
-
-            <Button
-                android:id="@+id/next_day_button"
-                android:layout_width="75dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:text="@string/top_bar_next_day_button"
-                android:background="@drawable/top_bar_next_day_button_background"
-                />
-
-            <ScrollView
-                android:id="@+id/day_scroll_view"
-                android:layout_width="match_parent"
-                android:layout_height="570dp"
-                android:orientation="vertical"
-                app:layout_constraintTop_toBottomOf="@id/switch_to_month_view">
-
-                <LinearLayout
-                    android:id="@+id/day_scroll_view_content"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                </LinearLayout>
-            </ScrollView>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/month_view_home"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <CalendarView
-                android:id="@+id/month_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:firstDayOfWeek="2"
-                app:layout_constraintTop_toTopOf="parent"
-                android:theme="@style/custom_calendar_heading"
-                android:dateTextAppearance="@style/custom_calendar_view"
-                android:weekDayTextAppearance="@style/custom_calendar_view"
-                />
-
-            <Button
-                android:id="@+id/switch_to_day_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/month_view"
-                android:background="@drawable/switch_to_day_view_button_background"
-                />
-
-            <ScrollView
-                android:id="@+id/month_scroll_view"
-                android:layout_width="match_parent"
-                android:layout_height="235dp"
-                android:orientation="vertical"
-                app:layout_constraintTop_toBottomOf="@id/switch_to_day_view">
-
-                <LinearLayout
-                    android:id="@+id/month_scroll_view_content"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                </LinearLayout>
-            </ScrollView>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ViewSwitcher>
-
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
     <com.getbase.floatingactionbutton.FloatingActionsMenu
         android:id="@+id/fab_menu"
         android:layout_width="wrap_content"
@@ -150,6 +56,5 @@
             app:fab_icon="@drawable/ic_baseline_add_event_24"
             app:fab_title="Event"/>
     </com.getbase.floatingactionbutton.FloatingActionsMenu>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

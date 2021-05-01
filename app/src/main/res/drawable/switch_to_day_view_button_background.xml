@@ -4,7 +4,7 @@
     <solid android:color="@color/calendy_purple" />
 
     <corners
-        android:bottomLeftRadius="75dp"
-        android:bottomRightRadius="75dp"/>
+        android:bottomLeftRadius="50dp"
+        android:bottomRightRadius="50dp"/>
 
 </shape>
