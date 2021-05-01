@@ -1,4 +1,4 @@
-package com.g2k.calendy;
+package com.g2k.calendy.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import com.g2k.calendy.R;
 import com.g2k.calendy.utils.DatePickerButton;
 import com.g2k.calendy.utils.TimePickerButton;
 

@@ -28,4 +28,13 @@ public class CurrentUser extends User {
             throw new Exception("Current user is already initialized!");
         }
     }
+
+    public static void initialize(User user) throws Exception {
+        if (!isCreated) {
+            user = new CurrentUser(user.getUid(), user.getEmail(), user.getName(),
+                    user.getUniversity(), user.getCity(), user.isVisible(), user.getBirthDate());
+        } else {
+            throw new Exception("Current user is already initialized!");
+        }
+    }
 }

@@ -7,7 +7,6 @@ import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.RequiresApi;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -15,13 +14,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ViewSwitcher;
 
-import com.g2k.calendy.AddNewEventActivity;
-import com.g2k.calendy.AddNewGoalActivity;
-import com.g2k.calendy.AddNewReminderActivity;
+import com.g2k.calendy.activities.AddNewEventActivity;
+import com.g2k.calendy.activities.AddNewGoalActivity;
+import com.g2k.calendy.activities.AddNewReminderActivity;
 import com.g2k.calendy.R;
 import com.g2k.calendy.utils.CurrentDate;
 import com.g2k.calendy.utils.DailyEventsView;

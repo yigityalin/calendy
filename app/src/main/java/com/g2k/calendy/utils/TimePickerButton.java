@@ -16,7 +16,6 @@ import java.util.Locale;
  * @version 2021/04/23
  */
 public class TimePickerButton implements View.OnClickListener {
-    private final static int BUTTON_STYLE = AlertDialog.THEME_DEVICE_DEFAULT_LIGHT;
     private final Context context;
     private final Button button;
 
@@ -61,7 +60,6 @@ public class TimePickerButton implements View.OnClickListener {
         };
 
         timePickerDialog = new TimePickerDialog(context,
-                BUTTON_STYLE,
                 timeSetListener,
                 hour,
                 minute,

@@ -17,7 +17,6 @@ import java.util.Calendar;
  * @version 2021/04/23
  */
 public class DatePickerButton implements View.OnClickListener {
-    private final static int BUTTON_STYLE = AlertDialog.THEME_DEVICE_DEFAULT_LIGHT;
     private final Button button;
     private final Context context;
 
@@ -75,7 +74,7 @@ public class DatePickerButton implements View.OnClickListener {
         month = calendar.get(Calendar.MONTH);
         year = calendar.get(Calendar.YEAR);
 
-        datePickerDialog = new DatePickerDialog(context, BUTTON_STYLE, dateSetListener, year, month, day);
+        datePickerDialog = new DatePickerDialog(context, dateSetListener, year, month, day);
     }
 
     private String makeDateString(int dayOfMonth, int month, int year) {
