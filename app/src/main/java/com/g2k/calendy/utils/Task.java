@@ -7,7 +7,7 @@ import java.util.Date;
  * @author Mehmet Kağan İlbak
  * @version 2021/05/30
  */
-public abstract class Task implements Comparable {
+public abstract class Task {
     String description;
     Date startDate;
     Date endDate;
@@ -36,7 +36,4 @@ public abstract class Task implements Comparable {
         this.endDate = endDate;
     }
 
-    public int compareTo(Task task) {
-        return startDate.compareTo(task.startDate);
-    }
 }

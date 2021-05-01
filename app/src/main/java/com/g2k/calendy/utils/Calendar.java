@@ -25,7 +25,7 @@ public class Calendar {
 
     public void addTask(Task task) {
         tasks.add(task);
-        Collections.sort(tasks);
+//        Collections.sort(tasks);
     }
 
     public Task getNextTask() throws Exception {

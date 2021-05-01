@@ -80,45 +80,18 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        viewSwitcher = view.findViewById(R.id.view_switcher_home);
-        View dayView = view.findViewById(R.id.day_view_home);
-        View monthView = view.findViewById(R.id.month_view_home);
-        Button switchToMonthViewButton = view.findViewById(R.id.switch_to_month_view);
-        Button switchToDayViewButton = view.findViewById(R.id.switch_to_day_view);
-
         FloatingActionButton fabGoal = view.findViewById(R.id.fab_goal);
         FloatingActionButton fabTask = view.findViewById(R.id.fab_reminder);
         FloatingActionButton fabEvent = view.findViewById(R.id.fab_event);
-
-        switchToMonthViewButton.setText(CurrentDate.getCurrentDate());
-        switchToDayViewButton.setText(CurrentDate.getCurrentDate());
-
-        switchToMonthViewButton.setOnClickListener(viewSwitchButtonListener);
-        switchToDayViewButton.setOnClickListener(viewSwitchButtonListener);
 
         fabGoal.setOnClickListener(fabListener);
         fabTask.setOnClickListener(fabListener);
         fabEvent.setOnClickListener(fabListener);
 
-        initialize(getContext(), view);
-
         return view;
     }
 
-    private final View.OnClickListener viewSwitchButtonListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            switch (v.getId())
-            {
-                case R.id.switch_to_month_view:
-                    viewSwitcher.showNext();
-                    break;
-                case R.id.switch_to_day_view:
-                    viewSwitcher.showPrevious();
-                    break;
-            }
-        }
-    };
+
 
 
     // TODO fab intents
@@ -138,162 +111,4 @@ public class HomeFragment extends Fragment {
             }
         }
     };
-
-    /**
-     * TODO: this is a test code. check again when database connection is done
-     * initializes the home view by adding the events
-     * @param context is the content to initialize
-     * @param view is the parent view
-     */
-    @SuppressLint("SetTextI18n")
-    private void initialize(Context context, View view)
-    {
-        LinearLayout switchMonthViewContent = view.findViewById(R.id.month_scroll_view_content);
-        LinearLayout switchDayViewContent = view.findViewById(R.id.day_scroll_view_content);
-
-        DailyEventsView dailyEventsView = new DailyEventsView(
-                context,
-                "Test Header",
-                "00:00",
-                "Test Description"
-        );
-
-        DailyEventsView dailyEventsView2 = new DailyEventsView(
-                context,
-                "Test Header 2",
-                "00:01",
-                "Test Description 2"
-        );
-
-        DailyEventsView dailyEventsView3 = new DailyEventsView(
-                context,
-                "Test Header 3",
-                "00:02",
-                "Test Description 3"
-        );
-
-        DailyEventsView dailyEventsView4 = new DailyEventsView(
-                context,
-                "Test Header 4",
-                "00:03",
-                "Test Description 4"
-        );
-
-        DailyEventsView dailyEventsView5 = new DailyEventsView(
-                context,
-                "Test Header 5",
-                "00:04",
-                "Test Description 5"
-        );
-
-        DailyEventsView dailyEventsView6 = new DailyEventsView(
-                context,
-                "Test Header 6",
-                "00:05",
-                "Test Description 6"
-        );
-
-        DailyEventsView dailyEventsView7 = new DailyEventsView(
-                context,
-                "Test Header 7",
-                "00:06",
-                "Test Description 7"
-        );
-
-        DailyEventsView dailyEventsView8 = new DailyEventsView(
-                context,
-                "Test Header 8",
-                "00:07",
-                "Test Description 8"
-        );
-
-        DailyEventsView dailyEventsView9 = new DailyEventsView(
-                context,
-                "Test Header 9",
-                "00:08",
-                "Test Description 9"
-        );
-
-        DailyEventsView dailyEventsView01 = new DailyEventsView(
-                context,
-                "Test Header",
-                "00:00",
-                "Test Description"
-        );
-
-        DailyEventsView dailyEventsView02 = new DailyEventsView(
-                context,
-                "Test Header 2",
-                "00:01",
-                "Test Description 2"
-        );
-
-        DailyEventsView dailyEventsView03 = new DailyEventsView(
-                context,
-                "Test Header 3",
-                "00:02",
-                "Test Description 3"
-        );
-
-        DailyEventsView dailyEventsView04 = new DailyEventsView(
-                context,
-                "Test Header 4",
-                "00:03",
-                "Test Description 4"
-        );
-
-        DailyEventsView dailyEventsView05 = new DailyEventsView(
-                context,
-                "Test Header 5",
-                "00:04",
-                "Test Description 5"
-        );
-
-        DailyEventsView dailyEventsView06 = new DailyEventsView(
-                context,
-                "Test Header 6",
-                "00:05",
-                "Test Description 6"
-        );
-
-        DailyEventsView dailyEventsView07 = new DailyEventsView(
-                context,
-                "Test Header 7",
-                "00:06",
-                "Test Description 7"
-        );
-
-        DailyEventsView dailyEventsView08 = new DailyEventsView(
-                context,
-                "Test Header 8",
-                "00:07",
-                "Test Description 8"
-        );
-
-        DailyEventsView dailyEventsView09 = new DailyEventsView(
-                context,
-                "Test Header 9",
-                "00:08",
-                "Test Description 9"
-        );
-
-        switchMonthViewContent.addView(dailyEventsView);
-        switchMonthViewContent.addView(dailyEventsView2);
-        switchMonthViewContent.addView(dailyEventsView3);
-        switchMonthViewContent.addView(dailyEventsView4);
-        switchMonthViewContent.addView(dailyEventsView5);
-        switchMonthViewContent.addView(dailyEventsView6);
-        switchMonthViewContent.addView(dailyEventsView7);
-        switchMonthViewContent.addView(dailyEventsView8);
-        switchMonthViewContent.addView(dailyEventsView9);
-        switchDayViewContent.addView(dailyEventsView01);
-        switchDayViewContent.addView(dailyEventsView02);
-        switchDayViewContent.addView(dailyEventsView03);
-        switchDayViewContent.addView(dailyEventsView04);
-        switchDayViewContent.addView(dailyEventsView05);
-        switchDayViewContent.addView(dailyEventsView06);
-        switchDayViewContent.addView(dailyEventsView07);
-        switchDayViewContent.addView(dailyEventsView08);
-        switchDayViewContent.addView(dailyEventsView09);
-    }
 }
