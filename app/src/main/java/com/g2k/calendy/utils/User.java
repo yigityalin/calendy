@@ -21,7 +21,7 @@ public class User {
         this.university = university;
         this.city = city;
         this.isVisible = isVisible;
-        this.birthDate = birthDate;
+        this.birthDate = new Date(); // TODO fix later
     }
 
     public String getUid() {

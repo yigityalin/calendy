@@ -1,4 +1,4 @@
-package com.g2k.calendy;
+package com.g2k.calendy.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,8 +6,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import com.g2k.calendy.R;
 import com.g2k.calendy.utils.TimePickerButton;
 
+/**
+ * Adding new goal
+ * @author Mehmet Kağan İlbak
+ * @version 2021/05/01
+ */
 public class AddNewGoalActivity extends AppCompatActivity {
     private TimePickerButton startTimeButton;
     private TimePickerButton endTimeButton;

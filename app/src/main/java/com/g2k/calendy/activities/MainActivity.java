@@ -1,4 +1,4 @@
-package com.g2k.calendy;
+package com.g2k.calendy.activities;
 
 
 import androidx.annotation.NonNull;
@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.g2k.calendy.R;
 import com.g2k.calendy.fragments.CalendarsFragment;
 import com.g2k.calendy.fragments.HomeFragment;
 import com.g2k.calendy.fragments.SearchFragment;

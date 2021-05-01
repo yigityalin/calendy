@@ -8,10 +8,9 @@ import java.util.Date;
  * @version 2021/04/29
  */
 public abstract class Task {
-    String description;
-    Date taskDate;
-    Date startDate;
-    Date endDate;
+    protected String description;
+    protected Date startDate;
+    protected Date endDate;
 
     public String getName() {
         return description;
@@ -19,14 +18,6 @@ public abstract class Task {
 
     public void setName(String name) {
         this.description = name;
-    }
-
-    public Date getTaskDate() {
-        return taskDate;
-    }
-
-    public void setTaskDate(Date taskDate) {
-        this.taskDate = taskDate;
     }
 
     public Date getStartDate() {

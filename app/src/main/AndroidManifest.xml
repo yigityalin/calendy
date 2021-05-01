@@ -9,25 +9,25 @@
         android:roundIcon="@mipmap/icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.Calendy">
-        <activity android:name=".SignupActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".StartActivity">
+        <activity android:name=".activities.SignupActivity" />
+        <activity android:name=".activities.LoginActivity" />
+        <activity android:name=".activities.StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddNewGoalActivity" />
+        <activity android:name=".activities.AddNewGoalActivity" />
         <activity
-            android:name=".AddNewReminderActivity"
+            android:name=".activities.AddNewReminderActivity"
             android:label="Add New Reminder"
-            android:parentActivityName=".MainActivity" />
-        <activity android:name=".MainActivity" />
+            android:parentActivityName=".activities.MainActivity" />
+        <activity android:name=".activities.MainActivity" />
         <activity
-            android:name=".AddNewEventActivity"
+            android:name=".activities.AddNewEventActivity"
             android:label="Add New Event"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".activities.MainActivity" />
     </application>
 
 </manifest>
