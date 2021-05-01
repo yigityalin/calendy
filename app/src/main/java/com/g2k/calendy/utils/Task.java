@@ -5,12 +5,12 @@ import java.util.Date;
 /**
  * Abstract Task class for Event, Reminder, Goal
  * @author Mehmet Kağan İlbak
- * @version 2021/04/29
+ * @version 2021/05/30
  */
-public abstract class Task {
-    protected String description;
-    protected Date startDate;
-    protected Date endDate;
+public abstract class Task implements Comparable {
+    String description;
+    Date startDate;
+    Date endDate;
 
     public String getName() {
         return description;
@@ -34,5 +34,9 @@ public abstract class Task {
 
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
+    }
+
+    public int compareTo(Task task) {
+        return startDate.compareTo(task.startDate);
     }
 }
