@@ -9,8 +9,8 @@ import java.util.Date;
  */
 public abstract class Task {
     String description;
-    Date startDate;
-    Date endDate;
+    String startDate;
+    String endDate;
 
     public String getName() {
         return description;
@@ -20,19 +20,19 @@ public abstract class Task {
         this.description = name;
     }
 
-    public Date getStartDate() {
+    public String getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(String startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public String getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(String endDate) {
         this.endDate = endDate;
     }
 

@@ -22,6 +22,7 @@ import com.g2k.calendy.activities.AddNewReminderActivity;
 import com.g2k.calendy.R;
 import com.g2k.calendy.utils.CurrentDate;
 import com.g2k.calendy.utils.DailyEventsView;
+import com.g2k.calendy.utils.DatePickerButton;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 
 /**
@@ -31,6 +32,7 @@ import com.getbase.floatingactionbutton.FloatingActionButton;
  * @version 2021/04/26
  */
 public class HomeFragment extends Fragment {
+    DatePickerButton datePickerButton;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -80,6 +82,8 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
+        datePickerButton = new DatePickerButton(getContext(), view.findViewById(R.id.home_pick_date_button));
+
         FloatingActionButton fabGoal = view.findViewById(R.id.fab_goal);
         FloatingActionButton fabTask = view.findViewById(R.id.fab_reminder);
         FloatingActionButton fabEvent = view.findViewById(R.id.fab_event);
@@ -90,9 +94,6 @@ public class HomeFragment extends Fragment {
 
         return view;
     }
-
-
-
 
     // TODO fab intents
     private final View.OnClickListener fabListener = new View.OnClickListener() {
