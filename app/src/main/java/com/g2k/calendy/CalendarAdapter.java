@@ -19,7 +19,7 @@ import java.util.ArrayList;
  */
 public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.ViewHolder>
 {
-    private final ArrayList<String> calendarData;
+    private ArrayList<String> calendarData;
     private CalendarClickListener calendarClickListener;
 
     public class ViewHolder extends RecyclerView.ViewHolder
