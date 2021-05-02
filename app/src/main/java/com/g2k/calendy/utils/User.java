@@ -1,27 +1,44 @@
 package com.g2k.calendy.utils;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
- * User class
+ * User class to hold calendars, uid, email, name, university, city, visibility, birthDate
+ * @author Mehmet Kağan İlbak
+ * @version 2021/05/03
  */
 public class User {
-    String uid;
-    String email;
-    String name;
-    String university;
-    String city;
-    boolean isVisible;
-    Date birthDate;
+    private ArrayList<Calendar> calendars;
+    private String uid;
+    private String email;
+    private String name;
+    private String university;
+    private String city;
+    private boolean isVisible;
+    private String birthDate;
 
-    public User(String uid, String email, String name, String university, String city, boolean isVisible, Date birthDate) {
+    public User(String uid, String email, String name, String university, String city, boolean isVisible, String birthDate) {
+        calendars = new ArrayList<>();
         this.uid = uid;
         this.email = email;
         this.name = name;
         this.university = university;
         this.city = city;
         this.isVisible = isVisible;
-        this.birthDate = new Date(); // TODO fix later
+        this.birthDate = birthDate;
+    }
+
+    public ArrayList<Calendar> getCalendars() {
+        return calendars;
+    }
+
+    public void setCalendars(ArrayList<Calendar> calendars) {
+        this.calendars = calendars;
+    }
+
+    public User() {
+        // Necessary for CurrentUser
     }
 
     public String getUid() {
@@ -68,11 +85,11 @@ public class User {
         isVisible = visible;
     }
 
-    public Date getBirthDate() {
+    public String getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(String birthDate) {
         this.birthDate = birthDate;
     }
 }

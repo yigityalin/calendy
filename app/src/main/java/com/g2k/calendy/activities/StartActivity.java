@@ -7,7 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.g2k.calendy.R;
+import com.g2k.calendy.utils.CurrentUser;
 import com.g2k.calendy.utils.DatabaseHelper;
+import com.g2k.calendy.utils.User;
 import com.google.firebase.auth.FirebaseAuth;
 
 /**
@@ -26,6 +28,9 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         findViewById(R.id.start_signup_button).setOnClickListener(this);
 
         if (DatabaseHelper.isLoggedIn()) {
+            CurrentUser.initialize();
+            DatabaseHelper.initCurrentUser();
+
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);

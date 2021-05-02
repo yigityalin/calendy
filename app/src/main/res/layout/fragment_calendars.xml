@@ -15,34 +15,53 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/calendars_top_bar_profile_button"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:layout_marginStart="56dp"
-            android:text="Change this"
+            android:text="@string/edit_your_profile"
+            style="@style/default_button"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/calendars_top_bar_settings_button"
-            android:layout_width="50dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="56dp"
-            android:text="!!!"
+            android:text="@string/settings"
+            style="@style/default_button"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- PLACEHOLDER REMOVE LATER -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/calendars_add_calendar"
+        style="@style/default_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:text="@string/add_calendar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calendars_top_bar" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/calendars_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/calendars_top_bar">
+        app:layout_constraintTop_toBottomOf="@+id/calendars_add_calendar"
+        app:layout_constraintVertical_bias="0.042">
 
     </androidx.recyclerview.widget.RecyclerView>
 

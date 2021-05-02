@@ -9,6 +9,8 @@
         android:roundIcon="@mipmap/icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.Calendy">
+        <activity android:name=".EditProfileActivity"></activity>
+        <activity android:name=".AddCalendarActivity" />
         <activity android:name=".activities.SignupActivity" />
         <activity android:name=".activities.LoginActivity" />
         <activity android:name=".activities.StartActivity">

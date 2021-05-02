@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.ViewSwitcher;
 
 import com.g2k.calendy.activities.AddNewEventActivity;
@@ -21,18 +22,22 @@ import com.g2k.calendy.activities.AddNewGoalActivity;
 import com.g2k.calendy.activities.AddNewReminderActivity;
 import com.g2k.calendy.R;
 import com.g2k.calendy.utils.CurrentDate;
+import com.g2k.calendy.utils.CurrentUser;
 import com.g2k.calendy.utils.DailyEventsView;
+import com.g2k.calendy.utils.DatabaseHelper;
 import com.g2k.calendy.utils.DatePickerButton;
 import com.getbase.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.DatabaseReference;
 
 /**
  * Home fragment for displaying events & creating new ones
  * using floating action button (fab)
  * @author Mehmet Kağan İlbak, Yiğit Yalın
- * @version 2021/04/26
+ * @version 2021/05/03
  */
 public class HomeFragment extends Fragment {
-    DatePickerButton datePickerButton;
+    private DatePickerButton datePickerButton;
+    private DatabaseReference mDatabase;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
