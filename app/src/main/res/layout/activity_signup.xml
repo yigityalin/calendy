@@ -117,7 +117,7 @@
             android:textColorHint="#FFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/userPassword" />
+            app:layout_constraintTop_toBottomOf="@+id/userPasswordCheck" />
 
         <EditText
             android:id="@+id/userEmail"
@@ -151,6 +151,24 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/userEmail" />
+
+        <EditText
+            android:id="@+id/userPasswordCheck"
+            android:layout_width="331dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:autofillHints=""
+            android:hint="@string/user_confirm_password"
+            android:imeActionLabel="@string/action_sign_in_short"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"
+            android:selectAllOnFocus="true"
+            android:shadowColor="#FFFFFF"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/userPassword" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/signup_button"
