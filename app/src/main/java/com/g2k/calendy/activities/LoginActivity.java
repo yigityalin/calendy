@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -28,12 +29,14 @@ import com.google.firebase.database.FirebaseDatabase;
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     FirebaseAuth mAuth;
     DatabaseReference mDatabase;
+    private EditText mEmail, mPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        mEmail = findViewById( R.id.login_email);
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
@@ -56,6 +59,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private void login() {
         String email = ((EditText) findViewById(R.id.login_email)).getText().toString();
         String password = ((EditText) findViewById(R.id.login_password)).getText().toString();
+
+        if(TextUtils.isEmpty(email)) {
+            mEmail.setError( "Email cannot be blank!");
+            return;
+        }
+        if(password.length() < 6) {
+            mPassword.setError("Password must be at least 6 characters long!");
+            return;
+        }
 
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
