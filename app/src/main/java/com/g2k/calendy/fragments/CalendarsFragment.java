@@ -86,6 +86,7 @@ public class CalendarsFragment extends Fragment
         calendarAdapter = new CalendarAdapter(dataSet);
     }
 
+    // TODO: remove SuppressLint
     @SuppressLint("SetTextI18n")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
