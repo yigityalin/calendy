@@ -10,6 +10,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.g2k.calendy.R;
+import com.g2k.calendy.utils.DatabaseHelper;
+import com.g2k.calendy.utils.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -72,10 +74,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void onAuthSuccess(FirebaseUser firebaseUser) throws Exception {
-//        String name = mDatabase.child("users").child(firebaseUser.getUid()).child("name").get();
-//        User user = new User(firebaseUser.getUid(), firebaseUser.getEmail(), name, university, city, true, dateOfBirth);
-//        CurrentUser.initialize(user);
-
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);

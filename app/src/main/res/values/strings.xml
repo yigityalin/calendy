@@ -57,8 +57,6 @@
     <string name="user_name">Name</string>
     <string name="user_city">City (optional)</string>
     <string name="user_university_name">University Name (optional)</string>
-    =======
-    >>>>>>> 7be10a45d70a0e2180b4be958cdf4ebfc9814b44
     <string name="top_bar_prev_day_button"><![CDATA[<]]></string>
     <string name="top_bar_next_day_button"><![CDATA[>]]></string>
     <string name="my_next_goal">My next goal!</string>
@@ -70,6 +68,13 @@
     <string name="event_description">Event Description</string>
     <string name="reminder_description">Reminder Description</string>
     <string name="count">Count</string>
+    <string name="edit_your_profile">Edit Your Profile</string>
+    <string name="settings">Settings</string>
+    <string name="add_calendar">Add Calendar</string>
+    <string name="save">Save</string>
+    <string name="university">University</string>
+    <string name="city">City</string>
+    <string name="name">Name</string>
     <string name="user_confirm_password">Confirm Password</string>
     <string name="fPassword_text">Please enter your Email to reset your password</string>
     <string name="enter_your_email_here">Enter your email here...</string>

@@ -1,17 +1,15 @@
 package com.g2k.calendy.utils;
 
-import java.util.Date;
+/**
+ * CurrentUser singleton to manage current logged in user
+ * @author Mehmet Kağan İlbak
+ * @version 2021/05/03
+ */
+public class CurrentUser {
+    private static boolean isCreated = false;
+    private static User user;
 
-public class CurrentUser extends User {
-    private static boolean isCreated;
-    private static CurrentUser user;
-
-    private CurrentUser(String uid, String email, String name, String university, String city, boolean isVisible, Date birthDate) {
-        super(uid, email, name, university, city, isVisible, birthDate);
-        isCreated = true;
-    }
-
-    public static CurrentUser getInstance() {
+    public static User getInstance() {
         return user;
     }
 
@@ -21,20 +19,30 @@ public class CurrentUser extends User {
                                   String university,
                                   String city,
                                   boolean isVisible,
-                                  Date birthDate) throws Exception {
+                                  String birthDate) {
         if (!isCreated) {
-            user = new CurrentUser(uid, email, name, university, city, isVisible, birthDate);
-        } else {
-            throw new Exception("Current user is already initialized!");
+            user = new User(uid, email, name, university, city, isVisible, birthDate);
+            isCreated = true;
         }
     }
 
-    public static void initialize(User user) throws Exception {
+    /**
+     * Method to set fields of singleton because Firebase methods are async
+     * @param userP
+     */
+    public static void initialize(User userP) {
         if (!isCreated) {
-            user = new CurrentUser(user.getUid(), user.getEmail(), user.getName(),
-                    user.getUniversity(), user.getCity(), user.isVisible(), user.getBirthDate());
-        } else {
-            throw new Exception("Current user is already initialized!");
+            user = userP;
+            isCreated = true;
+        }
+    }
+
+    /**
+     * Need to run this outside of onDataChange() to retrieve User data
+     */
+    public static void initialize() {
+        if (!isCreated) {
+            user = new User();
         }
     }
 }

@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.g2k.calendy.R;
 import com.g2k.calendy.utils.CurrentUser;
+import com.g2k.calendy.utils.DatabaseHelper;
 import com.g2k.calendy.utils.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -112,10 +113,9 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         String name = ((EditText) findViewById(R.id.userName)).getText().toString();
         String university = ((EditText) findViewById(R.id.userUniversity)).getText().toString();
         String city = ((EditText) findViewById(R.id.userCity)).getText().toString();
-        Date dateOfBirth = new Date(); // TODO fix later
+        String dateOfBirth = "0"; // TODO fix later
         User user = new User(firebaseUser.getUid(), firebaseUser.getEmail(), name, university, city, true, dateOfBirth);
 
-        CurrentUser.initialize(user);
         writeNewUser(user.getUid(), user);
 
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);

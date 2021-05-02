@@ -1,5 +1,6 @@
 package com.g2k.calendy.fragments;
 
+import android.content.Intent;
 import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -14,8 +15,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.g2k.calendy.AddCalendarActivity;
 import com.g2k.calendy.CalendarAdapter;
+import com.g2k.calendy.EditProfileActivity;
 import com.g2k.calendy.R;
+import com.g2k.calendy.utils.CurrentUser;
 
 import java.util.ArrayList;
 
@@ -96,11 +100,16 @@ public class CalendarsFragment extends Fragment
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_calendars, container, false);
 
+        view.findViewById(R.id.calendars_add_calendar).setOnClickListener(listener);
+        view.findViewById(R.id.calendars_top_bar_profile_button).setOnClickListener(listener);
+        view.findViewById(R.id.calendars_top_bar_settings_button).setOnClickListener(listener);
+
         AppCompatButton navigateToProfileButton;
         navigateToProfileButton = view.findViewById(R.id.calendars_top_bar_profile_button);
 
         navigateToProfileButton.setText("Change this!");
         navigateToProfileButton.setTextColor(Color.WHITE);
+
 
         calendarsView = view.findViewById(R.id.calendars_view);
         calendarsView.setAdapter(calendarAdapter);
@@ -113,6 +122,22 @@ public class CalendarsFragment extends Fragment
 
         return view;
     }
+
+    private final View.OnClickListener listener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.calendars_add_calendar:
+                    startActivity(new Intent(getContext(), AddCalendarActivity.class));
+                    break;
+                case R.id.calendars_top_bar_profile_button:
+                    startActivity(new Intent(getContext(), EditProfileActivity.class));
+                    break;
+                case R.id.calendars_top_bar_settings_button:
+                    break;
+            }
+        }
+    };
 
     /**
      * the method which is called when a recycler view element is clicked
