@@ -1,7 +1,10 @@
 package com.g2k.calendy.fragments;
 
+import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.os.Bundle;
 
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -83,12 +86,20 @@ public class CalendarsFragment extends Fragment
         calendarAdapter = new CalendarAdapter(dataSet);
     }
 
+    // TODO: remove SuppressLint
+    @SuppressLint("SetTextI18n")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState)
     {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_calendars, container, false);
+
+        AppCompatButton navigateToProfileButton;
+        navigateToProfileButton = view.findViewById(R.id.calendars_top_bar_profile_button);
+
+        navigateToProfileButton.setText("Change this!");
+        navigateToProfileButton.setTextColor(Color.WHITE);
 
         calendarsView = view.findViewById(R.id.calendars_view);
         calendarsView.setAdapter(calendarAdapter);
