@@ -53,12 +53,10 @@
     <string name="log_in">Log In</string>
     <string name="forgot_your_password_text">Forgot your password?</string>
     <string name="title_activity_signup_page">signupPage</string>
-    <string name="date_of_birth">Date Of Birth</string>
+    <string name="date_of_birth">Date Of Birth (optional)</string>
     <string name="user_name">Name</string>
-    <string name="user_city">City</string>
-    <string name="user_university_name">University Name</string>
-    =======
-    >>>>>>> 7be10a45d70a0e2180b4be958cdf4ebfc9814b44
+    <string name="user_city">City (optional)</string>
+    <string name="user_university_name">University Name (optional)</string>
     <string name="top_bar_prev_day_button"><![CDATA[<]]></string>
     <string name="top_bar_next_day_button"><![CDATA[>]]></string>
     <string name="my_next_goal">My next goal!</string>
@@ -77,5 +75,9 @@
     <string name="university">University</string>
     <string name="city">City</string>
     <string name="name">Name</string>
+    <string name="user_confirm_password">Confirm Password</string>
+    <string name="fPassword_text">Please enter your Email to reset your password</string>
+    <string name="enter_your_email_here">Enter your email here...</string>
+    <string name="reset">Reset</string>
 
 </resources>

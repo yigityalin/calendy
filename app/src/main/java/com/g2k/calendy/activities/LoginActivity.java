@@ -22,7 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 /**
  * Login Activity
- * @author Mehmet Kağan İlbak
+ * @author Mehmet Kağan İlbak & Mustafa Cem Gülümser
  * @version 2021/05/01
  */
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
@@ -77,5 +77,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
+    }
+
+    public void forgotPassword(View view) {
+        Intent intent = new Intent( this, ForgotPasswordActivity.class);
+        startActivity( intent);
     }
 }

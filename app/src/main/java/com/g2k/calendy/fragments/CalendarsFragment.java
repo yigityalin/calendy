@@ -1,8 +1,11 @@
 package com.g2k.calendy.fragments;
 
 import android.content.Intent;
+import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.os.Bundle;
 
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -26,6 +29,7 @@ import java.util.ArrayList;
  * create an instance of this fragment.
  */
 public class CalendarsFragment extends Fragment
+                               implements CalendarAdapter.CalendarClickListener
 {
 
     // TODO: Rename parameter arguments, choose names that match
@@ -83,10 +87,12 @@ public class CalendarsFragment extends Fragment
         dataSet.add("test8");
         dataSet.add("test9");
         dataSet.add("test10");
-        dataSet.add(0,"Create New Calendar");
         calendarAdapter = new CalendarAdapter(dataSet);
+        calendarAdapter.setCalendarClickListener(this);
     }
 
+    // TODO: remove SuppressLint
+    @SuppressLint("SetTextI18n")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState)
@@ -97,6 +103,13 @@ public class CalendarsFragment extends Fragment
         view.findViewById(R.id.calendars_add_calendar).setOnClickListener(listener);
         view.findViewById(R.id.calendars_top_bar_profile_button).setOnClickListener(listener);
         view.findViewById(R.id.calendars_top_bar_settings_button).setOnClickListener(listener);
+
+        AppCompatButton navigateToProfileButton;
+        navigateToProfileButton = view.findViewById(R.id.calendars_top_bar_profile_button);
+
+        navigateToProfileButton.setText("Change this!");
+        navigateToProfileButton.setTextColor(Color.WHITE);
+
 
         calendarsView = view.findViewById(R.id.calendars_view);
         calendarsView.setAdapter(calendarAdapter);
@@ -125,4 +138,16 @@ public class CalendarsFragment extends Fragment
             }
         }
     };
+
+    /**
+     * the method which is called when a recycler view element is clicked
+     * @param view is the current view
+     * @param position is the position of the element in the recycler view
+     */
+    @Override
+    public void onCalendarClick(View view, int position)
+    {
+        Toast.makeText(getContext(), "Clicked " + calendarAdapter.getItem(position)
+                + " at position " + position, Toast.LENGTH_SHORT).show();
+    }
 }

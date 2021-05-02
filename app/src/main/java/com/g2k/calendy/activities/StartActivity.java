@@ -14,7 +14,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 /**
  * Start Activity, if user is logged in via firebase, MainActivity starts
- * @author Mehmet Kağan İlbak
+ * @author Mehmet Kağan İlbak & Mustafa Cem Gülümser
  * @version 2021/05/01
  */
 public class StartActivity extends AppCompatActivity implements View.OnClickListener {
