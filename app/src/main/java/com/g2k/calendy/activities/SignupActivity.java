@@ -118,6 +118,9 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
 
         writeNewUser(user.getUid(), user);
 
+        CurrentUser.initialize();
+        DatabaseHelper.initCurrentUser();
+
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);

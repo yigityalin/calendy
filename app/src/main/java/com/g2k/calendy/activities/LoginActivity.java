@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.g2k.calendy.R;
+import com.g2k.calendy.utils.CurrentUser;
 import com.g2k.calendy.utils.DatabaseHelper;
 import com.g2k.calendy.utils.User;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -86,6 +87,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void onAuthSuccess(FirebaseUser firebaseUser) throws Exception {
+        CurrentUser.initialize();
+        DatabaseHelper.initCurrentUser();
+
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
