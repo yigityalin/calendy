@@ -19,21 +19,20 @@ import java.util.ArrayList;
  */
 public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.ViewHolder>
 {
-    private ArrayList<String> calendarData;
+    private final ArrayList<String> calendarData;
+    private CalendarClickListener calendarClickListener;
 
     public class ViewHolder extends RecyclerView.ViewHolder
+                            implements View.OnClickListener
     {
         private final TextView calendarNameTextField;
-        private final ImageButton deleteCalendarButton;
-        private final ImageButton bottomButton;
 
         public ViewHolder(View view)
         {
             super(view);
 
             calendarNameTextField = view.findViewById(R.id.calendar_name);
-            deleteCalendarButton = view.findViewById(R.id.delete_calendar_button);
-            bottomButton = view.findViewById(R.id.bottom_button);
+            view.setOnClickListener(this);
         }
 
         public TextView getCalendarNameTextField()
@@ -41,14 +40,12 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.ViewHo
             return calendarNameTextField;
         }
 
-        public ImageButton getDeleteCalendarButton()
-        {
-            return deleteCalendarButton;
-        }
-
-        public ImageButton getBottomButton()
-        {
-            return bottomButton;
+        @Override
+        public void onClick(View view) {
+            if (calendarClickListener != null)
+            {
+                calendarClickListener.onCalendarClick(view, getAdapterPosition());
+            }
         }
     }
 
@@ -91,5 +88,22 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.ViewHo
     public String getItem(int id)
     {
         return calendarData.get(id);
+    }
+
+    /**
+     * sets the click listener for recycler view elements
+     * @param calendarClickListener is the click listener to be added
+     */
+    public void setCalendarClickListener(CalendarClickListener calendarClickListener)
+    {
+        this.calendarClickListener = calendarClickListener;
+    }
+
+    /**
+     * parent activity implements this to set what will happen on click
+     */
+    public interface CalendarClickListener
+    {
+        void onCalendarClick(View view, int position);
     }
 }

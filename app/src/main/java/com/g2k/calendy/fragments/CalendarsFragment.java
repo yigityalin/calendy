@@ -25,6 +25,7 @@ import java.util.ArrayList;
  * create an instance of this fragment.
  */
 public class CalendarsFragment extends Fragment
+                               implements CalendarAdapter.CalendarClickListener
 {
 
     // TODO: Rename parameter arguments, choose names that match
@@ -82,8 +83,8 @@ public class CalendarsFragment extends Fragment
         dataSet.add("test8");
         dataSet.add("test9");
         dataSet.add("test10");
-        dataSet.add(0,"Create New Calendar");
         calendarAdapter = new CalendarAdapter(dataSet);
+        calendarAdapter.setCalendarClickListener(this);
     }
 
     // TODO: remove SuppressLint
@@ -111,5 +112,17 @@ public class CalendarsFragment extends Fragment
                 ));
 
         return view;
+    }
+
+    /**
+     * the method which is called when a recycler view element is clicked
+     * @param view is the current view
+     * @param position is the position of the element in the recycler view
+     */
+    @Override
+    public void onCalendarClick(View view, int position)
+    {
+        Toast.makeText(getContext(), "Clicked " + calendarAdapter.getItem(position)
+                + " at position " + position, Toast.LENGTH_SHORT).show();
     }
 }
