@@ -80,4 +80,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
+
+    public void forgotPassword(View view) {
+        Intent intent = new Intent( this, ForgotPasswordActivity.class);
+        startActivity( intent);
+    }
 }

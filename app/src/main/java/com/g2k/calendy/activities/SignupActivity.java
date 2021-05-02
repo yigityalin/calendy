@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -32,6 +33,7 @@ import java.util.Date;
 public class SignupActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = "SignupActivity";
 
+    private EditText mEmail, mPassword, mName, mPasswordCheck;
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
     private ProgressDialog pd;
@@ -41,6 +43,10 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
+        mName = findViewById( R.id.userName);
+        mEmail = findViewById( R.id.userEmail);
+        mPassword = findViewById( R.id.userPassword);
+        mPasswordCheck = findViewById( R.id.userPasswordCheck);
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
 
@@ -63,8 +69,27 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
     private void register() {
         Log.d(TAG, "signUp");
 
+        String name = ((EditText) findViewById(R.id.userName)).getText().toString();
         String email = ((EditText) findViewById(R.id.userEmail)).getText().toString();
         String password = ((EditText) findViewById(R.id.userPassword)).getText().toString();
+        String confirmPassword = ((EditText) findViewById(R.id.userPasswordCheck)).getText().toString();
+
+        if(TextUtils.isEmpty(email)) {
+            mEmail.setError( "Email cannot be blank!");
+            return;
+        }
+        if(password.length() < 6) {
+            mPassword.setError("Password must be at least 6 characters long!");
+            return;
+        }
+        if(name.length() <= 2) {
+            mName.setError("Invalid name!");
+            return;
+        }
+        if( !confirmPassword.equals( password)) {
+            mPasswordCheck.setError("Passwords do not match!");
+            return;
+        }
 
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
