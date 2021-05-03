@@ -26,7 +26,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Spinner
-            android:id="@+id/add_event_calendar_spinner"
+            android:id="@+id/add_reminder_calendar_spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="32dp"
@@ -44,7 +44,7 @@
             android:textStyle="italic"
             android:text="@string/reminder_description"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/add_event_calendar_spinner" />
+            app:layout_constraintTop_toBottomOf="@+id/add_reminder_calendar_spinner" />
 
         <EditText
             android:id="@+id/add_reminder_description"

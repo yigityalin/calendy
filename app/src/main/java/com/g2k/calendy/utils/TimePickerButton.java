@@ -23,14 +23,6 @@ public class TimePickerButton implements View.OnClickListener {
     private int hour;
     private int minute;
 
-    public int getHour() {
-        return hour;
-    }
-
-    public int getMinute() {
-        return minute;
-    }
-
     public TimePickerButton(Context context, Button button) {
         this.button = button;
         this.context = context;
@@ -38,6 +30,14 @@ public class TimePickerButton implements View.OnClickListener {
         button.setText(getCurrentTime()); // getCurrentTime() also initializes hour and minute
         initTimePicker();
         button.setOnClickListener(this);
+    }
+
+    public int getHour() {
+        return hour;
+    }
+
+    public int getMinute() {
+        return minute;
     }
 
     private String getCurrentTime() {
@@ -48,6 +48,30 @@ public class TimePickerButton implements View.OnClickListener {
         return hour + ":" + minute;
     }
 
+    /**
+     * Get formatted time as HHMM
+     * @return (String) HHMM
+     */
+    public String getFormattedTime() {
+        return getFormattedHour() + getFormattedMinute();
+    }
+
+    public String getFormattedHour() {
+        if (hour < 10) {
+            return "0" + hour;
+        } else {
+            return "" + hour;
+        }
+    }
+
+    public String getFormattedMinute() {
+        if (minute < 10) {
+            return "0" + minute;
+        } else {
+            return "" + minute;
+        }
+    }
+
     private void initTimePicker() {
         TimePickerDialog.OnTimeSetListener timeSetListener = new TimePickerDialog.OnTimeSetListener() {
             @Override
@@ -55,7 +79,8 @@ public class TimePickerButton implements View.OnClickListener {
                 hour = selectedHour;
                 minute = selectedMinute;
 
-                button.setText(String.format(Locale.getDefault(), "%02d:%02d", hour, minute));
+                button.setText(getFormattedHour() + ":" + getFormattedMinute());
+//                button.setText(String.format(Locale.getDefault(), "%02d:%02d", hour, minute));
             }
         };
 

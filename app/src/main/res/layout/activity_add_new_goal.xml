@@ -26,7 +26,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Spinner
-            android:id="@+id/add_event_calendar_spinner"
+            android:id="@+id/add_goal_calendar_spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="32dp"
@@ -44,7 +44,7 @@
             android:textStyle="italic"
             android:text="@string/goal_description"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/add_event_calendar_spinner" />
+            app:layout_constraintTop_toBottomOf="@+id/add_goal_calendar_spinner" />
 
         <EditText
             android:id="@+id/add_goal_description"
@@ -76,13 +76,59 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:layout_marginEnd="32dp"
-            android:textSize="24sp"
-            android:inputType="number"
+            android:layout_marginTop="16dp"
             android:hint="@string/_10"
+            android:inputType="number"
+            android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView7"/>
+            app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:text="@string/start_date"
+            android:textSize="24sp"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_goal_count" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/add_goal_start_date_picker_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:textSize="24sp"
+            style="@style/default_button"
+            android:text="JAN 01 2021"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:text="@string/end_date"
+            android:textSize="24sp"
+            android:textStyle="italic"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView2"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/add_goal_end_date_picker_button"
+            style="@style/default_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
+            android:text="JAN 01 2021"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
         <TextView
             android:id="@+id/textView8"
@@ -94,7 +140,7 @@
             android:textStyle="italic"
             android:text="@string/start_time"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/add_goal_count" />
+            app:layout_constraintTop_toBottomOf="@+id/add_goal_start_date_picker_button" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/add_goal_start_time_picker_button"
@@ -112,14 +158,13 @@
             android:id="@+id/textView9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
             android:layout_marginEnd="32dp"
-            android:textSize="24sp"
-            android:textStyle="italic"
             android:text="@string/end_time"
             android:textAlignment="textEnd"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/add_goal_count" />
+            android:textSize="24sp"
+            android:textStyle="italic"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView8"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/add_goal_end_time_picker_button"
@@ -149,5 +194,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/add_goal_start_time_picker_button"
             app:layout_constraintVertical_bias="1" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

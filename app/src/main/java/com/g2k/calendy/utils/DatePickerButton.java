@@ -46,6 +46,38 @@ public class DatePickerButton implements View.OnClickListener {
         button.setOnClickListener(this);
     }
 
+    /**
+     * Get date formatted as YYYYMMDD
+     * @return (String) YYYYMMDD
+     */
+    public String getFormattedDate() {
+        return "" + year + getFormattedMonth() + getFormattedDay();
+    }
+
+    /**
+     * Turn 3 to 03
+     * @return (String) month added with 0
+     */
+    public String getFormattedMonth() {
+        if (month < 10) {
+            return "0" + month;
+        } else {
+            return "" + month;
+        }
+    }
+
+    /**
+     * Turn 3 to 03
+     * @return (String) day added with 0
+     */
+    public String getFormattedDay() {
+        if (day < 10) {
+            return "0" + day;
+        } else {
+            return "" + day;
+        }
+    }
+
     private String getTodaysDate() {
         Calendar calendar = Calendar.getInstance();
         day = calendar.get(Calendar.DAY_OF_MONTH);
@@ -95,4 +127,5 @@ public class DatePickerButton implements View.OnClickListener {
     public void onClick(View v) {
         datePickerDialog.show();
     }
+
 }

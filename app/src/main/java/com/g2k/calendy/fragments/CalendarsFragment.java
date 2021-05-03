@@ -23,6 +23,7 @@ import com.g2k.calendy.activities.AddNewEventActivity;
 import com.g2k.calendy.utils.Calendar;
 import com.g2k.calendy.utils.CurrentUser;
 import com.g2k.calendy.utils.CurrentUserCalendars;
+import com.g2k.calendy.utils.DatabaseHelper;
 
 import java.util.ArrayList;
 
