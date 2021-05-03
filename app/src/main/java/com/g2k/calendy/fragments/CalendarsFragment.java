@@ -19,6 +19,7 @@ import com.g2k.calendy.AddCalendarActivity;
 import com.g2k.calendy.CalendarAdapter;
 import com.g2k.calendy.EditProfileActivity;
 import com.g2k.calendy.R;
+import com.g2k.calendy.activities.AddNewEventActivity;
 import com.g2k.calendy.utils.CurrentUser;
 
 import java.util.ArrayList;
@@ -147,7 +148,7 @@ public class CalendarsFragment extends Fragment
     @Override
     public void onCalendarClick(View view, int position)
     {
-        Toast.makeText(getContext(), "Clicked " + calendarAdapter.getItem(position)
-                + " at position " + position, Toast.LENGTH_SHORT).show();
+        //TODO: fix activity class
+        startActivity(new Intent(view.getContext(), AddNewEventActivity.class));
     }
 }
