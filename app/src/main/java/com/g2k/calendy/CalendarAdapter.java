@@ -1,5 +1,6 @@
 package com.g2k.calendy;
 
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,11 +9,13 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.g2k.calendy.utils.Calendar;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Adapter class for recycleview in Calendars fragment
@@ -22,6 +25,7 @@ import java.util.ArrayList;
  */
 public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.ViewHolder> {
     private final ArrayList<Calendar> calendarData;
+    private final Drawable[] backgrounds;
     private CalendarClickListener calendarClickListener;
 
     public class ViewHolder extends RecyclerView.ViewHolder
@@ -52,8 +56,9 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.ViewHo
      * @param dataSet String[] containing the data to populate views to be used
      *                by RecyclerView.
      */
-    public CalendarAdapter(ArrayList<Calendar> dataSet) {
+    public CalendarAdapter(ArrayList<Calendar> dataSet, Drawable[] drawables) {
         calendarData = dataSet;
+        backgrounds = drawables;
     }
 
     @NonNull
@@ -69,6 +74,7 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.ViewHo
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
         viewHolder.getCalendarNameTextField().setText(calendarData.get(position).getName());
+        viewHolder.getCalendarNameTextField().setBackground(pickRandomBackground());
         viewHolder.getCalendarNameTextField().setOnClickListener(viewHolder);
     }
 
@@ -79,7 +85,6 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.ViewHo
 
     /**
      * gets the data at click position
-     *
      * @param id is the click position
      * @return the data at click position
      */
@@ -101,5 +106,15 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.ViewHo
      */
     public interface CalendarClickListener {
         void onCalendarClick(View view, int position);
+    }
+
+    /**
+     * picks a random background for each calendar
+     * @return a random background
+     */
+    public Drawable pickRandomBackground() {
+        Random random = new Random();
+        int randomIndex = random.nextInt(backgrounds.length);
+        return backgrounds[randomIndex];
     }
 }
