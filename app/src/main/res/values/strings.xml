@@ -82,4 +82,13 @@
     <string name="start_date">Start Date</string>
     <string name="end_date">End Date</string>
 
+    <string-array name="user_tasks">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
 </resources>
