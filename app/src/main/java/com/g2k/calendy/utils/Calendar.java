@@ -30,6 +30,10 @@ public class Calendar {
         this.isPublic = isPublic;
     }
 
+    public Calendar() {
+        // Required for database
+    }
+
     public void addTask(Task task) {
         tasks.add(task);
 //        Collections.sort(tasks);

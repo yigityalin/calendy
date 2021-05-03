@@ -20,7 +20,9 @@ import com.g2k.calendy.CalendarAdapter;
 import com.g2k.calendy.EditProfileActivity;
 import com.g2k.calendy.R;
 import com.g2k.calendy.activities.AddNewEventActivity;
+import com.g2k.calendy.utils.Calendar;
 import com.g2k.calendy.utils.CurrentUser;
+import com.g2k.calendy.utils.CurrentUserCalendars;
 
 import java.util.ArrayList;
 
@@ -30,9 +32,7 @@ import java.util.ArrayList;
  * create an instance of this fragment.
  */
 public class CalendarsFragment extends Fragment
-                               implements CalendarAdapter.CalendarClickListener
-{
-
+        implements CalendarAdapter.CalendarClickListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -41,7 +41,8 @@ public class CalendarsFragment extends Fragment
     // TODO: Rename and change types of parameters
     RecyclerView calendarsView;
     CalendarAdapter calendarAdapter;
-    ArrayList<String> dataSet;
+    ArrayList<Calendar> dataSet;
+    private AppCompatButton navigateToProfileButton;
 
     private String mParam1;
     private String mParam2;
@@ -77,17 +78,8 @@ public class CalendarsFragment extends Fragment
         }
 
         // TODO: fix calendar dataset when database is connected
-        dataSet = new ArrayList<>();
-        dataSet.add("test1");
-        dataSet.add("test2");
-        dataSet.add("test3");
-        dataSet.add("test4");
-        dataSet.add("test5");
-        dataSet.add("test6");
-        dataSet.add("test7");
-        dataSet.add("test8");
-        dataSet.add("test9");
-        dataSet.add("test10");
+        dataSet = CurrentUserCalendars.getCalendars();
+
         calendarAdapter = new CalendarAdapter(dataSet);
         calendarAdapter.setCalendarClickListener(this);
     }
@@ -96,8 +88,7 @@ public class CalendarsFragment extends Fragment
     @SuppressLint("SetTextI18n")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState)
-    {
+                             Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_calendars, container, false);
 
@@ -105,10 +96,8 @@ public class CalendarsFragment extends Fragment
         view.findViewById(R.id.calendars_top_bar_profile_button).setOnClickListener(listener);
         view.findViewById(R.id.calendars_top_bar_settings_button).setOnClickListener(listener);
 
-        AppCompatButton navigateToProfileButton;
         navigateToProfileButton = view.findViewById(R.id.calendars_top_bar_profile_button);
-
-        navigateToProfileButton.setText("Change this!");
+        navigateToProfileButton.setText(CurrentUser.getInstance().getName());
         navigateToProfileButton.setTextColor(Color.WHITE);
 
 
@@ -119,7 +108,7 @@ public class CalendarsFragment extends Fragment
                 2,
                 RecyclerView.VERTICAL,
                 false
-                ));
+        ));
 
         return view;
     }
@@ -142,7 +131,8 @@ public class CalendarsFragment extends Fragment
 
     /**
      * the method which is called when a recycler view element is clicked
-     * @param view is the current view
+     *
+     * @param view     is the current view
      * @param position is the position of the element in the recycler view
      */
     @Override

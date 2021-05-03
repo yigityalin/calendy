@@ -10,39 +10,37 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.g2k.calendy.utils.Calendar;
+
 import java.util.ArrayList;
 
 /**
  * Adapter class for recycleview in Calendars fragment
+ *
  * @author Yiğit Yalın
  * @version 2021/04/29
  */
-public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.ViewHolder>
-{
-    private ArrayList<String> calendarData;
+public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.ViewHolder> {
+    private final ArrayList<Calendar> calendarData;
     private CalendarClickListener calendarClickListener;
 
     public class ViewHolder extends RecyclerView.ViewHolder
-                            implements View.OnClickListener
-    {
+            implements View.OnClickListener {
         private final TextView calendarNameTextField;
 
-        public ViewHolder(View view)
-        {
+        public ViewHolder(View view) {
             super(view);
 
             calendarNameTextField = view.findViewById(R.id.calendar_name);
         }
 
-        public TextView getCalendarNameTextField()
-        {
+        public TextView getCalendarNameTextField() {
             return calendarNameTextField;
         }
 
         @Override
         public void onClick(View view) {
-            if (calendarClickListener != null)
-            {
+            if (calendarClickListener != null) {
                 calendarClickListener.onCalendarClick(view, getAdapterPosition());
             }
         }
@@ -50,11 +48,11 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.ViewHo
 
     /**
      * Initialize the dataset of the Adapter.
+     *
      * @param dataSet String[] containing the data to populate views to be used
-     * by RecyclerView.
+     *                by RecyclerView.
      */
-    public CalendarAdapter(ArrayList<String> dataSet)
-    {
+    public CalendarAdapter(ArrayList<Calendar> dataSet) {
         calendarData = dataSet;
     }
 
@@ -69,9 +67,8 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder viewHolder, final int position)
-    {
-        viewHolder.getCalendarNameTextField().setText(calendarData.get(position));
+    public void onBindViewHolder(ViewHolder viewHolder, final int position) {
+        viewHolder.getCalendarNameTextField().setText(calendarData.get(position).getName());
         viewHolder.getCalendarNameTextField().setOnClickListener(viewHolder);
     }
 
@@ -82,28 +79,27 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.ViewHo
 
     /**
      * gets the data at click position
+     *
      * @param id is the click position
      * @return the data at click position
      */
-    public String getItem(int id)
-    {
+    public Calendar getItem(int id) {
         return calendarData.get(id);
     }
 
     /**
      * sets the click listener for recycler view elements
+     *
      * @param calendarClickListener is the click listener to be added
      */
-    public void setCalendarClickListener(CalendarClickListener calendarClickListener)
-    {
+    public void setCalendarClickListener(CalendarClickListener calendarClickListener) {
         this.calendarClickListener = calendarClickListener;
     }
 
     /**
      * parent activity implements this to set what will happen on click
      */
-    public interface CalendarClickListener
-    {
+    public interface CalendarClickListener {
         void onCalendarClick(View view, int position);
     }
 }
