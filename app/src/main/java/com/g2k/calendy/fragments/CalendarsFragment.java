@@ -20,7 +20,9 @@ import com.g2k.calendy.CalendarAdapter;
 import com.g2k.calendy.EditProfileActivity;
 import com.g2k.calendy.R;
 import com.g2k.calendy.activities.AddNewEventActivity;
+import com.g2k.calendy.utils.Calendar;
 import com.g2k.calendy.utils.CurrentUser;
+import com.g2k.calendy.utils.CurrentUserCalendars;
 
 import java.util.ArrayList;
 
@@ -39,7 +41,7 @@ public class CalendarsFragment extends Fragment
     // TODO: Rename and change types of parameters
     RecyclerView calendarsView;
     CalendarAdapter calendarAdapter;
-    ArrayList<String> dataSet;
+    ArrayList<Calendar> dataSet;
     private AppCompatButton navigateToProfileButton;
 
     private String mParam1;
@@ -76,17 +78,8 @@ public class CalendarsFragment extends Fragment
         }
 
         // TODO: fix calendar dataset when database is connected
-        dataSet = new ArrayList<>();
-        dataSet.add("test1");
-        dataSet.add("test2");
-        dataSet.add("test3");
-        dataSet.add("test4");
-        dataSet.add("test5");
-        dataSet.add("test6");
-        dataSet.add("test7");
-        dataSet.add("test8");
-        dataSet.add("test9");
-        dataSet.add("test10");
+        dataSet = CurrentUserCalendars.getCalendars();
+
         calendarAdapter = new CalendarAdapter(dataSet);
         calendarAdapter.setCalendarClickListener(this);
     }

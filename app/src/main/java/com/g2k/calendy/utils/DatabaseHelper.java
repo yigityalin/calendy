@@ -86,6 +86,29 @@ public class DatabaseHelper {
         });
     }
 
+    public static void initCurrentUserCalendars() {
+        String uid = mAuth.getCurrentUser().getUid();
+
+        mDatabase.child("calendars").child(uid).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                CurrentUserCalendars.getCalendars().clear(); // Remove all old calendars
+
+                // Add new ones from the database
+                for (DataSnapshot eachCalendar : snapshot.getChildren()) {
+                    Calendar calendar = eachCalendar.getValue(Calendar.class);
+                    CurrentUserCalendars.getCalendars().add(calendar);
+                }
+                System.out.println("smallog" + CurrentUserCalendars.getCalendars().get(0).getName());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
     public static String getCurrentUserUID() {
         return mAuth.getCurrentUser().getUid();
     }

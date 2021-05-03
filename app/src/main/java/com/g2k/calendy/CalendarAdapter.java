@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.g2k.calendy.utils.Calendar;
+
 import java.util.ArrayList;
 
 /**
@@ -19,7 +21,7 @@ import java.util.ArrayList;
  * @version 2021/04/29
  */
 public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.ViewHolder> {
-    private final ArrayList<String> calendarData;
+    private final ArrayList<Calendar> calendarData;
     private CalendarClickListener calendarClickListener;
 
     public class ViewHolder extends RecyclerView.ViewHolder
@@ -50,7 +52,7 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.ViewHo
      * @param dataSet String[] containing the data to populate views to be used
      *                by RecyclerView.
      */
-    public CalendarAdapter(ArrayList<String> dataSet) {
+    public CalendarAdapter(ArrayList<Calendar> dataSet) {
         calendarData = dataSet;
     }
 
@@ -66,7 +68,7 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
-        viewHolder.getCalendarNameTextField().setText(calendarData.get(position));
+        viewHolder.getCalendarNameTextField().setText(calendarData.get(position).getName());
         viewHolder.getCalendarNameTextField().setOnClickListener(viewHolder);
     }
 
@@ -81,7 +83,7 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.ViewHo
      * @param id is the click position
      * @return the data at click position
      */
-    public String getItem(int id) {
+    public Calendar getItem(int id) {
         return calendarData.get(id);
     }
 
