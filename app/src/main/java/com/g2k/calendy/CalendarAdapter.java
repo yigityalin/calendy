@@ -30,7 +30,6 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.ViewHo
             super(view);
 
             calendarNameTextField = view.findViewById(R.id.calendar_name);
-            view.setOnClickListener(this);
         }
 
         public TextView getCalendarNameTextField() {
@@ -68,6 +67,7 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.ViewHo
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
         viewHolder.getCalendarNameTextField().setText(calendarData.get(position));
+        viewHolder.getCalendarNameTextField().setOnClickListener(viewHolder);
     }
 
     @Override
