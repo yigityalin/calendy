@@ -2,10 +2,13 @@ package com.g2k.calendy.fragments;
 
 import android.content.Intent;
 import android.annotation.SuppressLint;
+import android.content.res.Resources;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -24,6 +27,7 @@ import com.g2k.calendy.utils.Calendar;
 import com.g2k.calendy.utils.CurrentUser;
 import com.g2k.calendy.utils.CurrentUserCalendars;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 /**
@@ -77,15 +81,12 @@ public class CalendarsFragment extends Fragment
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-        // TODO: fix calendar dataset when database is connected
         dataSet = CurrentUserCalendars.getCalendars();
 
-        calendarAdapter = new CalendarAdapter(dataSet);
+        calendarAdapter = new CalendarAdapter(dataSet, createBackgroundsArray());
         calendarAdapter.setCalendarClickListener(this);
     }
 
-    // TODO: remove SuppressLint
-    @SuppressLint("SetTextI18n")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -140,5 +141,57 @@ public class CalendarsFragment extends Fragment
     {
         //TODO: fix activity class
         startActivity(new Intent(view.getContext(), AddNewEventActivity.class));
+    }
+
+    private Drawable[] createBackgroundsArray()
+    {
+        Resources resources = getResources();
+
+        Drawable backgroundBlack = ResourcesCompat.getDrawable(
+                resources,
+                R.drawable.calendars_list_background_black,
+                null
+        );
+
+        Drawable backgroundBlue = ResourcesCompat.getDrawable(
+                resources,
+                R.drawable.calendars_list_background_blue,
+                null
+        );
+
+        Drawable backgroundRed = ResourcesCompat.getDrawable(
+                resources,
+                R.drawable.calendars_list_background_red,
+                null
+        );
+
+        Drawable backgroundPurple = ResourcesCompat.getDrawable(
+                resources,
+                R.drawable.calendars_list_background_purple,
+                null
+        );
+
+        Drawable backgroundCoral = ResourcesCompat.getDrawable(
+                resources,
+                R.drawable.calendars_list_background_coral,
+                null
+        );
+
+        Drawable backgroundGreen = ResourcesCompat.getDrawable(
+                resources,
+                R.drawable.calendars_list_background_green,
+                null
+        );
+
+        Drawable[] backgrounds = {
+                backgroundBlack,
+                backgroundBlue,
+                backgroundCoral,
+                backgroundGreen,
+                backgroundRed,
+                backgroundPurple
+        };
+
+        return backgrounds;
     }
 }

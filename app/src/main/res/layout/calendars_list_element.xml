@@ -17,7 +17,6 @@
         android:layout_marginBottom="25dp"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
-        android:background="@drawable/calendars_list_background"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:gravity="center"
