@@ -1,7 +1,5 @@
 package com.g2k.calendy.fragments;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -12,19 +10,12 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.ViewSwitcher;
 
 import com.g2k.calendy.activities.AddNewEventActivity;
 import com.g2k.calendy.activities.AddNewGoalActivity;
 import com.g2k.calendy.activities.AddNewReminderActivity;
 import com.g2k.calendy.R;
-import com.g2k.calendy.utils.CurrentDate;
-import com.g2k.calendy.utils.CurrentUser;
-import com.g2k.calendy.utils.DailyEventsView;
-import com.g2k.calendy.utils.DatabaseHelper;
 import com.g2k.calendy.utils.DatePickerButton;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DatabaseReference;

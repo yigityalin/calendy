@@ -29,9 +29,7 @@ import java.util.ArrayList;
  * create an instance of this fragment.
  */
 public class CalendarsFragment extends Fragment
-                               implements CalendarAdapter.CalendarClickListener
-{
-
+        implements CalendarAdapter.CalendarClickListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -41,6 +39,7 @@ public class CalendarsFragment extends Fragment
     RecyclerView calendarsView;
     CalendarAdapter calendarAdapter;
     ArrayList<String> dataSet;
+    private AppCompatButton navigateToProfileButton;
 
     private String mParam1;
     private String mParam2;
@@ -95,8 +94,7 @@ public class CalendarsFragment extends Fragment
     @SuppressLint("SetTextI18n")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState)
-    {
+                             Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_calendars, container, false);
 
@@ -104,10 +102,8 @@ public class CalendarsFragment extends Fragment
         view.findViewById(R.id.calendars_top_bar_profile_button).setOnClickListener(listener);
         view.findViewById(R.id.calendars_top_bar_settings_button).setOnClickListener(listener);
 
-        AppCompatButton navigateToProfileButton;
         navigateToProfileButton = view.findViewById(R.id.calendars_top_bar_profile_button);
-
-        navigateToProfileButton.setText("Change this!");
+        navigateToProfileButton.setText(CurrentUser.getInstance().getName());
         navigateToProfileButton.setTextColor(Color.WHITE);
 
 
@@ -118,7 +114,7 @@ public class CalendarsFragment extends Fragment
                 2,
                 RecyclerView.VERTICAL,
                 false
-                ));
+        ));
 
         return view;
     }
@@ -141,12 +137,12 @@ public class CalendarsFragment extends Fragment
 
     /**
      * the method which is called when a recycler view element is clicked
-     * @param view is the current view
+     *
+     * @param view     is the current view
      * @param position is the position of the element in the recycler view
      */
     @Override
-    public void onCalendarClick(View view, int position)
-    {
+    public void onCalendarClick(View view, int position) {
         Toast.makeText(getContext(), "Clicked " + calendarAdapter.getItem(position)
                 + " at position " + position, Toast.LENGTH_SHORT).show();
     }
