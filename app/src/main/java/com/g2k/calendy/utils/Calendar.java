@@ -2,6 +2,7 @@ package com.g2k.calendy.utils;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 
 /**
  * Calendar to hold ArrayList of Tasks
@@ -12,18 +13,16 @@ import java.util.Collections;
  * @version 2021/05/03
  */
 public class Calendar {
-    private ArrayList<Task> tasks;
+    private HashMap<String, Task> tasks;
     private ArrayList<String> subscriberUIDs;
     private String ownerUID;
     private String name;
     private boolean isPublic;
 
-    public String getOwnerUID() {
-        return ownerUID;
+    {
+        tasks = new HashMap<>();
     }
-
     public Calendar(String name, boolean isPublic, String ownerUID) {
-        tasks = new ArrayList<>();
         subscriberUIDs = new ArrayList<>();
         this.name = name;
         this.ownerUID = ownerUID;
@@ -35,26 +34,11 @@ public class Calendar {
     }
 
     public void addTask(Task task) {
-        tasks.add(task);
-//        Collections.sort(tasks);
+        tasks.put(task.getTaskID(), task);
     }
 
-    public Task getNextTask() {
-        if (tasks.size() > 0)
-            return tasks.get(0);
-        return null; // TODO fix this
-    }
-
-    public int getTaskCount() {
-        return tasks.size();
-    }
-
-    public void removeCurrentTask() {
-        tasks.remove(0);
-    }
-
-    public void removeTask(int index) {
-        tasks.remove(index);
+    public String getOwnerUID() {
+        return ownerUID;
     }
 
     public String getName() {
@@ -65,7 +49,20 @@ public class Calendar {
         return isPublic;
     }
 
+    public HashMap<String, Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(HashMap<String, Task> tasks) {
+        this.tasks = tasks;
+    }
+
     public void setPublic(boolean aPublic) {
         isPublic = aPublic;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }

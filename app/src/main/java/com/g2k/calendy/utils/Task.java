@@ -7,17 +7,25 @@ import java.util.Date;
  * @author Mehmet Kağan İlbak
  * @version 2021/05/30
  */
-public abstract class Task {
-    String description;
-    String startDate;
-    String endDate;
+public class Task {
+    protected String taskID;
+    protected String description;
+    protected String startDate;
+    protected String endDate;
 
-    public String getName() {
+    public Task() {
+
+    }
+    public String getTaskID() {
+        return taskID;
+    }
+
+    public String getDescription() {
         return description;
     }
 
-    public void setName(String name) {
-        this.description = name;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getStartDate() {

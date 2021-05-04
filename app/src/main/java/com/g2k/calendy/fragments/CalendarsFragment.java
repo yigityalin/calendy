@@ -26,6 +26,7 @@ import com.g2k.calendy.activities.AddNewEventActivity;
 import com.g2k.calendy.utils.Calendar;
 import com.g2k.calendy.utils.CurrentUser;
 import com.g2k.calendy.utils.CurrentUserCalendars;
+import com.g2k.calendy.utils.DatabaseHelper;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -46,7 +47,6 @@ public class CalendarsFragment extends Fragment
     RecyclerView calendarsView;
     CalendarAdapter calendarAdapter;
     ArrayList<Calendar> dataSet;
-    private AppCompatButton navigateToProfileButton;
 
     private String mParam1;
     private String mParam2;
@@ -96,11 +96,6 @@ public class CalendarsFragment extends Fragment
         view.findViewById(R.id.calendars_add_calendar).setOnClickListener(listener);
         view.findViewById(R.id.calendars_top_bar_profile_button).setOnClickListener(listener);
         view.findViewById(R.id.calendars_top_bar_settings_button).setOnClickListener(listener);
-
-        navigateToProfileButton = view.findViewById(R.id.calendars_top_bar_profile_button);
-        navigateToProfileButton.setText(CurrentUser.getInstance().getName());
-        navigateToProfileButton.setTextColor(Color.WHITE);
-
 
         calendarsView = view.findViewById(R.id.calendars_view);
         calendarsView.setAdapter(calendarAdapter);

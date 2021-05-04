@@ -12,7 +12,6 @@ import androidx.annotation.NonNull;
 import com.g2k.calendy.R;
 import com.g2k.calendy.activities.MainActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -22,6 +21,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -48,16 +48,11 @@ public class DatabaseHelper {
         mDatabase = FirebaseDatabase.getInstance().getReference();
     }
 
-    public static void updateCurrentUser() {
-        mDatabase.child("users").child(CurrentUser.getInstance().getUid()).setValue(CurrentUser.getInstance());
-    }
-
     public static boolean isLoggedIn() {
         return mAuth.getCurrentUser() != null;
     }
 
     public static void createNewCalendar(Calendar calendar) {
-        calendar.addTask(new Reminder());
         mDatabase.child("calendars").child(calendar.getOwnerUID()).child(calendar.getName()).setValue(calendar);
     }
 
@@ -86,6 +81,10 @@ public class DatabaseHelper {
         });
     }
 
+    public static void updateCurrentUser() {
+        mDatabase.child("users").child(CurrentUser.getInstance().getUid()).setValue(CurrentUser.getInstance());
+    }
+
     public static void initCurrentUserCalendars() {
         String uid = mAuth.getCurrentUser().getUid();
 
@@ -99,7 +98,6 @@ public class DatabaseHelper {
                     Calendar calendar = eachCalendar.getValue(Calendar.class);
                     CurrentUserCalendars.getCalendars().add(calendar);
                 }
-                System.out.println("smallog" + CurrentUserCalendars.getCalendars().get(0).getName());
             }
 
             @Override
@@ -109,7 +107,52 @@ public class DatabaseHelper {
         });
     }
 
+    public static void updateCurrentUserCalendars() {
+        for (Calendar calendar : CurrentUserCalendars.getCalendars()) {
+            mDatabase.child("calendars").child(getCurrentUserUID()).child(calendar.getName()).setValue(calendar);
+        }
+    }
+
+    /**
+     * Read tasks of the given calendar and return AL
+     * Also updates AL when database changes
+     * @param calendar (String) Calendar name to read tasks from
+     * @return (ArrayList<Task>) AL of tasks
+     */
+    public static ArrayList<Task> readCalendarTasks(String calendar) {
+        ArrayList<Task> tasks = new ArrayList<>();
+
+        mDatabase.child("calendars").child(getCurrentUserUID())
+                .child(calendar)
+                .child("tasks")
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot task : snapshot.getChildren()) {
+                            String taskID = task.getKey();
+                            System.out.println("Log here" + taskID);
+                            tasks.add(task.child(taskID).getValue(Task.class));
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+        return tasks;
+    }
+
     public static String getCurrentUserUID() {
         return mAuth.getCurrentUser().getUid();
+    }
+
+    /**
+     * Get unique id from system time
+     * @return (String) Current system date and time down to milliseconds
+     */
+    public static String getUniqueId() {
+        SimpleDateFormat formatter= new SimpleDateFormat("yyyyMMddHHmmssSSS");
+        return formatter.format(new Date());
     }
 }
