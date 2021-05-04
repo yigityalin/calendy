@@ -80,4 +80,13 @@
     <string name="enter_your_email_here">Enter your email here...</string>
     <string name="reset">Reset</string>
 
+    <string-array name="user_tasks">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
 </resources>

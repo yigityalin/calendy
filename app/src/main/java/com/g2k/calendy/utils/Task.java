@@ -44,4 +44,8 @@ public class Task {
         this.endDate = endDate;
     }
 
+    public String toString() {
+        return this.getTaskID();
+    }
+
 }
