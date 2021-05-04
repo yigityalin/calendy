@@ -22,6 +22,7 @@ import java.util.HashMap;
  * Adapter Class for RecyclerView in HomeFragment
  * @author Mehmet Kağan İlbak
  * @author Mustafa Cem Gülümser
+ * @author Yiğit Yalın
  * @version 2021/05/04
  */
 
@@ -38,7 +39,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.rv_row, parent, false);
+        View view = inflater.inflate(R.layout.home_frag_rv_row, parent, false);
         return new ViewHolder(view);
     }
 
@@ -68,10 +69,10 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            taskDescription = itemView.findViewById(R.id.taskD);
-            taskType = itemView.findViewById(R.id.calName);
-            startTime = itemView.findViewById(R.id.startT);
-            endTime = itemView.findViewById(R.id.endT);
+            taskDescription = itemView.findViewById(R.id.home_frag_rv_row_description);
+            taskType = itemView.findViewById(R.id.home_frag_rv_row_type);
+            startTime = itemView.findViewById(R.id.home_frag_rv_row_start_time);
+            endTime = itemView.findViewById(R.id.home_frag_rv_row_end_time);
         }
     }
 }
