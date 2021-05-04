@@ -1,4 +1,4 @@
-package com.g2k.calendy;
+package com.g2k.calendy.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,9 +12,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.g2k.calendy.utils.CalendarAdapter;
+import com.g2k.calendy.R;
 import com.g2k.calendy.utils.Calendar;
 import com.g2k.calendy.utils.Task;
-import com.g2k.calendy.utils.User;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

@@ -16,8 +16,8 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 
 import com.g2k.calendy.R;
-import com.g2k.calendy.UserAdapter;
-import com.g2k.calendy.UserProfileActivity;
+import com.g2k.calendy.utils.UserAdapter;
+import com.g2k.calendy.activities.UserProfileActivity;
 import com.g2k.calendy.utils.User;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;

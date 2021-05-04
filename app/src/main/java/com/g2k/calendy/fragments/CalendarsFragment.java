@@ -1,13 +1,10 @@
 package com.g2k.calendy.fragments;
 
 import android.content.Intent;
-import android.annotation.SuppressLint;
 import android.content.res.Resources;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
-import androidx.appcompat.widget.AppCompatButton;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -16,21 +13,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
-import com.g2k.calendy.AddCalendarActivity;
-import com.g2k.calendy.CalendarAdapter;
-import com.g2k.calendy.DetailedCalendarActivity;
-import com.g2k.calendy.EditProfileActivity;
+import com.g2k.calendy.activities.AddCalendarActivity;
+import com.g2k.calendy.utils.CalendarAdapter;
+import com.g2k.calendy.activities.DetailedCalendarActivity;
+import com.g2k.calendy.activities.EditProfileActivity;
 import com.g2k.calendy.R;
-import com.g2k.calendy.SettingsActivity;
-import com.g2k.calendy.activities.AddNewEventActivity;
+import com.g2k.calendy.activities.SettingsActivity;
 import com.g2k.calendy.utils.Calendar;
-import com.g2k.calendy.utils.CurrentUser;
 import com.g2k.calendy.utils.CurrentUserCalendars;
-import com.g2k.calendy.utils.DatabaseHelper;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 /**

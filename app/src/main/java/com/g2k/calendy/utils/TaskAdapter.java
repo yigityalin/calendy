@@ -1,4 +1,4 @@
-package com.g2k.calendy;
+package com.g2k.calendy.utils;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.g2k.calendy.utils.Task;
+import com.g2k.calendy.R;
 
 import java.util.ArrayList;
 

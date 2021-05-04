@@ -29,8 +29,8 @@ import com.google.firebase.database.FirebaseDatabase;
  * @version 2021/05/01
  */
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
-    FirebaseAuth mAuth;
-    DatabaseReference mDatabase;
+    private FirebaseAuth mAuth;
+    private DatabaseReference mDatabase;
     private EditText mEmail, mPassword;
 
     @Override

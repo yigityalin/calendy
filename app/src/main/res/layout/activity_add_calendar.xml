@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddCalendarActivity">
+    tools:context=".activities.AddCalendarActivity">
 
     <androidx.appcompat.widget.AppCompatCheckBox
         android:id="@+id/add_calendar_public_checkbox"

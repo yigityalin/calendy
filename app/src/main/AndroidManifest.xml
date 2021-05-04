@@ -9,11 +9,11 @@
         android:roundIcon="@mipmap/icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.Calendy">
-        <activity android:name=".UserProfileActivity"></activity>
-        <activity android:name=".SettingsActivity" />
-        <activity android:name=".DetailedCalendarActivity" />
-        <activity android:name=".EditProfileActivity" />
-        <activity android:name=".AddCalendarActivity" />
+        <activity android:name=".activities.UserProfileActivity"></activity>
+        <activity android:name=".activities.SettingsActivity" />
+        <activity android:name=".activities.DetailedCalendarActivity" />
+        <activity android:name=".activities.EditProfileActivity" />
+        <activity android:name=".activities.AddCalendarActivity" />
         <activity android:name=".activities.ForgotPasswordActivity" />
         <activity android:name=".activities.SignupActivity" />
         <activity android:name=".activities.LoginActivity" />

@@ -1,7 +1,8 @@
-package com.g2k.calendy;
+package com.g2k.calendy.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.g2k.calendy.R;
 import com.g2k.calendy.utils.Calendar;
 import com.g2k.calendy.utils.DatabaseHelper;
 

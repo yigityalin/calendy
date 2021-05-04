@@ -1,4 +1,4 @@
-package com.g2k.calendy;
+package com.g2k.calendy.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.g2k.calendy.R;
 import com.g2k.calendy.utils.CurrentUser;
 import com.g2k.calendy.utils.DatabaseHelper;
 

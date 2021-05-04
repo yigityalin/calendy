@@ -1,4 +1,4 @@
-package com.g2k.calendy;
+package com.g2k.calendy.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -8,13 +8,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.g2k.calendy.utils.CurrentUser;
+import com.g2k.calendy.R;
 import com.g2k.calendy.utils.CurrentUserCalendars;
 import com.g2k.calendy.utils.DatabaseHelper;
 import com.g2k.calendy.utils.Event;
 import com.g2k.calendy.utils.Goal;
 import com.g2k.calendy.utils.Reminder;
 import com.g2k.calendy.utils.Task;
+import com.g2k.calendy.utils.TaskAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 

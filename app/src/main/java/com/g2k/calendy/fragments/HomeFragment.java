@@ -14,21 +14,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ViewSwitcher;
 
-import com.g2k.calendy.TaskAdapter;
+import com.g2k.calendy.utils.TaskAdapter;
 import com.g2k.calendy.activities.AddNewEventActivity;
 import com.g2k.calendy.activities.AddNewGoalActivity;
 import com.g2k.calendy.activities.AddNewReminderActivity;
 import com.g2k.calendy.R;
 import com.g2k.calendy.utils.CurrentUserCalendars;
 import com.g2k.calendy.utils.DatePickerButton;
-import com.g2k.calendy.utils.Task;
 import com.getbase.floatingactionbutton.FloatingActionButton;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
 
 /**
  * Home fragment for displaying events & creating new ones

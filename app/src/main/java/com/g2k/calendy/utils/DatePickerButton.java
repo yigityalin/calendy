@@ -1,14 +1,10 @@
 package com.g2k.calendy.utils;
 
-import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
-
-import com.g2k.calendy.R;
-import com.g2k.calendy.TaskAdapter;
 
 import java.util.Calendar;
 

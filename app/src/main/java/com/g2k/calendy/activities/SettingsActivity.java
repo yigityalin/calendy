@@ -1,4 +1,4 @@
-package com.g2k.calendy;
+package com.g2k.calendy.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
@@ -6,11 +6,8 @@ import androidx.appcompat.widget.SwitchCompat;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.Switch;
 
-import com.g2k.calendy.activities.MainActivity;
-import com.g2k.calendy.activities.StartActivity;
+import com.g2k.calendy.R;
 import com.g2k.calendy.utils.CurrentUser;
 import com.g2k.calendy.utils.DatabaseHelper;
 
