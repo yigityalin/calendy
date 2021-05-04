@@ -86,7 +86,7 @@ public class DatePickerButton implements View.OnClickListener {
         month = calendar.get(Calendar.MONTH);
         year = calendar.get(Calendar.YEAR);
 
-        return getMonthFormat(month) + " " + day + " " + year;
+        return getMonthFormat(month) + " " + getFormattedDay() + " " + year;
     }
 
     private void initDatePicker() {

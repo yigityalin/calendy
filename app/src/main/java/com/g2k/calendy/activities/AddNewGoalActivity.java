@@ -34,16 +34,17 @@ public class AddNewGoalActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_goal);
-        System.out.println("Hey!" + CurrentUserCalendars.getTasksOnDate("20210504"));
+
+        findViewById(R.id.add_new_goal_button).setOnClickListener(listener);
         spinner = findViewById(R.id.add_goal_calendar_spinner);
         description = findViewById(R.id.add_goal_description);
-        startDateButton = new DatePickerButton(getApplicationContext(),
+        startDateButton = new DatePickerButton(AddNewGoalActivity.this,
                 findViewById(R.id.add_goal_start_date_picker_button));
-        endDateButton = new DatePickerButton(getApplicationContext(),
+        endDateButton = new DatePickerButton(AddNewGoalActivity.this,
                 findViewById(R.id.add_goal_end_date_picker_button));
-        startTimeButton = new TimePickerButton(getApplicationContext(),
+        startTimeButton = new TimePickerButton(AddNewGoalActivity.this,
                 findViewById(R.id.add_goal_start_time_picker_button));
-        endTimeButton = new TimePickerButton(getApplicationContext(),
+        endTimeButton = new TimePickerButton(AddNewGoalActivity.this,
                 findViewById(R.id.add_goal_end_time_picker_button));
 
         // Setting spinner to CurrentUserCalendars
@@ -63,7 +64,7 @@ public class AddNewGoalActivity extends AppCompatActivity {
                         startDateButton.getFormattedDate() + startTimeButton.getFormattedTime(),
                         endDateButton.getFormattedDate() + endTimeButton.getFormattedTime());
 
-                selectedCalendar = CurrentUserCalendars.getCalendar(((Calendar) spinner.getSelectedItem()).getName());
+                selectedCalendar = (Calendar) spinner.getSelectedItem();
 
                 selectedCalendar.addTask(goal);
                 DatabaseHelper.updateCurrentUserCalendars();

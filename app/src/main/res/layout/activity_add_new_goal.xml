@@ -188,6 +188,7 @@
             android:layout_marginBottom="32dp"
             android:textSize="32sp"
             android:text="@string/add_button_text"
+            android:onClick="addNewGoal"
             style="@style/default_button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
