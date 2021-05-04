@@ -23,11 +23,4 @@
         <item name="fontFamily">source-sans-pro</item>
         <item name="android:inputType">text</item>
     </style>
-
-    <style name="default_edittext">
-        <item name="background">@drawable/default_edittext_bg</item>
-        <item name="android:textSize">24sp</item>
-        <item name="android:textStyle">bold</item>
-        <item name="fontFamily">source-sans-pro</item>
-    </style>
 </resources>
