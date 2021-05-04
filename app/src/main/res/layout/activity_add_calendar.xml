@@ -10,39 +10,29 @@
         android:id="@+id/add_calendar_public_checkbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="152dp"
+        android:layout_marginTop="140dp"
         android:text="Public"
-        android:textColor="@color/purple"
-        android:fontFamily="@font/open_sans_bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/add_calendar_name"
-        android:layout_width="313dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/log_in"
-        android:fontFamily="@font/open_sans_bold"
-        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:hint="Calendar Name"
         android:inputType="text"
-        android:textColorHint="@color/purple"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/add_calendar_public_checkbox" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/add_calendar_button"
-        style="@style/default_button"
-        android:layout_width="112dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/add_calendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Add"
+        style="@style/default_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/add_calendar_name" />
 
