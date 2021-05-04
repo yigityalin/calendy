@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 
 import com.g2k.calendy.R;
+import com.g2k.calendy.TaskAdapter;
 
 import java.util.Calendar;
 
@@ -17,8 +18,9 @@ import java.util.Calendar;
  * @version 2021/04/23
  */
 public class DatePickerButton implements View.OnClickListener {
-    private final Button button;
-    private final Context context;
+    private Button button;
+    private Context context;
+    private TaskAdapter homeFragmentAdapter;
 
     private DatePickerDialog datePickerDialog;
     private int year;
@@ -59,10 +61,10 @@ public class DatePickerButton implements View.OnClickListener {
      * @return (String) month added with 0
      */
     public String getFormattedMonth() {
-        if (month < 10) {
-            return "0" + month;
+        if (month + 1 < 10) {
+            return "0" + (month + 1);
         } else {
-            return "" + month;
+            return "" + (month + 1);
         }
     }
 
@@ -78,7 +80,7 @@ public class DatePickerButton implements View.OnClickListener {
         }
     }
 
-    private String getTodaysDate() {
+    public String getTodaysDate() {
         Calendar calendar = Calendar.getInstance();
         day = calendar.get(Calendar.DAY_OF_MONTH);
         month = calendar.get(Calendar.MONTH);
@@ -128,4 +130,7 @@ public class DatePickerButton implements View.OnClickListener {
         datePickerDialog.show();
     }
 
+    public Button getButton() {
+        return button;
+    }
 }

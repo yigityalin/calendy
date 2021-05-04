@@ -22,6 +22,7 @@ public class Calendar {
     {
         tasks = new HashMap<>();
     }
+
     public Calendar(String name, boolean isPublic, String ownerUID) {
         subscriberUIDs = new ArrayList<>();
         this.name = name;

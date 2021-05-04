@@ -8,6 +8,7 @@ import java.util.Date;
  * @version 2021/05/30
  */
 public class Task {
+    protected String taskType;
     protected String taskID;
     protected String description;
     protected String startDate;
@@ -16,6 +17,7 @@ public class Task {
     public Task() {
 
     }
+
     public String getTaskID() {
         return taskID;
     }
@@ -46,6 +48,14 @@ public class Task {
 
     public String toString() {
         return this.getTaskID();
+    }
+
+    public void setTaskType(String taskType) {
+        this.taskType = taskType;
+    }
+
+    public String getTaskType() {
+        return taskType;
     }
 
 }
