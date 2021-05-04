@@ -9,9 +9,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.g2k.calendy.utils.Event;
+import com.g2k.calendy.utils.Goal;
+import com.g2k.calendy.utils.Reminder;
 import com.g2k.calendy.utils.Task;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 
 /**
@@ -52,7 +56,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
         String formattedEndTime = endTime.substring(0, 2) + ":" + endTime.substring(2, 4);
 
         holder.taskDescription.setText(tasks.get(position).getDescription());
-        holder.taskType.setText(tasks.get(position).getTaskType());
+        holder.taskType.setText(tasks.get(position).getClass().getSimpleName());
         holder.startTime.setText(formattedStartTime);
         holder.endTime.setText(formattedEndTime);
     }
@@ -80,8 +84,16 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
     private void combineIntoOneList() {
         for (String k : keys) {
             for (Task t : tasksMap.get(k)) {
-                tasks.add(t);
+                if ("Event".equals(t.getTaskType())) {
+                    tasks.add(new Event(t.getDescription(), t.getStartDate(), t.getEndDate()));
+                } else if ("Reminder".equals(t.getTaskType())) {
+                    tasks.add(new Reminder(t.getDescription(), t.getStartDate()));
+                } else if ("Goal".equals(t.getTaskType())) {
+                    tasks.add(new Goal(t.getDescription(), t.getStartDate(), t.getEndDate()));
+                }
             }
         }
+
+        Collections.sort(tasks); // Sort by startDate
     }
 }

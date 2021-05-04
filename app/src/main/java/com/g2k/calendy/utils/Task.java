@@ -7,7 +7,7 @@ import java.util.Date;
  * @author Mehmet Kağan İlbak
  * @version 2021/05/30
  */
-public class Task {
+public class Task implements Comparable {
     protected String taskType;
     protected String taskID;
     protected String description;
@@ -58,4 +58,15 @@ public class Task {
         return taskType;
     }
 
+    /**
+     * Compare by startDate
+     * @param o
+     * @return
+     */
+    @Override
+    public int compareTo(Object o) {
+        Task that = (Task) o;
+
+        return this.startDate.compareTo(that.startDate);
+    }
 }
