@@ -165,4 +165,8 @@ public class DatabaseHelper {
         SimpleDateFormat formatter= new SimpleDateFormat("yyyyMMddHHmmssSSS");
         return formatter.format(new Date());
     }
+
+    public static void logOut() {
+        mAuth.signOut();
+    }
 }

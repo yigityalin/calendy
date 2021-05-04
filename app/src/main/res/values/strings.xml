@@ -83,6 +83,8 @@
     <string name="end_date">End Date</string>
     <string name="birthdate_optional">Birthdate (optional)</string>
     <string name="calendar_name">Calendar Name</string>
+    <string name="log_out">Log out</string>
+    <string name="private_profile">Private Profile</string>
 
     <string-array name="user_tasks">
         <item></item>
