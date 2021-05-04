@@ -28,6 +28,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/detailed_calendar_name" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintBottom_toTopOf="@+id/detailed_calendar_recycler" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/detailed_calendar_recycler"
         android:layout_width="match_parent"
