@@ -91,24 +91,26 @@ public class DatePickerButton implements View.OnClickListener {
 
     private void initDatePicker() {
         Calendar calendar;
-        int year;
-        int month;
-        int day;
-        int style;
+        int cYear;
+        int cMonth;
+        int cDay;
 
         DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int selectedYear, int selectedMonth, int selectedDay) {
+                year = selectedYear;
+                month = selectedMonth;
+                day = selectedDay;
                 button.setText(makeDateString(selectedDay, selectedMonth, selectedYear));
             }
         };
 
         calendar = Calendar.getInstance();
-        day = calendar.get(Calendar.DAY_OF_MONTH);
-        month = calendar.get(Calendar.MONTH);
-        year = calendar.get(Calendar.YEAR);
+        cDay = calendar.get(Calendar.DAY_OF_MONTH);
+        cMonth = calendar.get(Calendar.MONTH);
+        cYear = calendar.get(Calendar.YEAR);
 
-        datePickerDialog = new DatePickerDialog(context, dateSetListener, year, month, day);
+        datePickerDialog = new DatePickerDialog(context, dateSetListener, cYear, cMonth, cDay);
     }
 
     private String makeDateString(int dayOfMonth, int month, int year) {

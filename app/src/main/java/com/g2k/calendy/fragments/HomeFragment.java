@@ -33,14 +33,12 @@ import java.util.HashMap;
 /**
  * Home fragment for displaying events & creating new ones
  * using floating action button (fab)
+ *
  * @author Mehmet Kağan İlbak, Yiğit Yalın, Mustafa Cem Gülümser
  * @version 2021/05/03
  */
 public class HomeFragment extends Fragment {
     private DatePickerButton datePickerButton;
-    private DatabaseReference mDatabase;
-    private FirebaseAuth mAuth = FirebaseAuth.getInstance();;
-    private HashMap<String, ArrayList<Task>> tasks;
     private RecyclerView tasksView;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -101,15 +99,15 @@ public class HomeFragment extends Fragment {
         fabTask.setOnClickListener(fabListener);
         fabEvent.setOnClickListener(fabListener);
 
-        tasksView = view.findViewById( R.id.recyclerView);
+        tasksView = view.findViewById(R.id.recyclerView);
 
         try {
             datePickerButton.getButton().setText(datePickerButton.getTodaysDate());
-            tasks = CurrentUserCalendars.getTasksOnDate(datePickerButton.getFormattedDate());
 
-            TaskAdapter taskAdapter = new TaskAdapter( this.getContext(), tasks);
-            tasksView.setAdapter( taskAdapter);
-            tasksView.setLayoutManager( new LinearLayoutManager( this.getContext()));
+            TaskAdapter taskAdapter = new TaskAdapter(this.getContext(),
+                    CurrentUserCalendars.getTodaysTasks());
+            tasksView.setAdapter(taskAdapter);
+            tasksView.setLayoutManager(new LinearLayoutManager(this.getContext()));
 
         } catch (Exception e) {
             datePickerButton.getButton().setText("Please Reload");

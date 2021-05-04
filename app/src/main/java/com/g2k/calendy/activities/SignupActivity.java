@@ -16,6 +16,7 @@ import com.g2k.calendy.R;
 import com.g2k.calendy.utils.CurrentUser;
 import com.g2k.calendy.utils.CurrentUserCalendars;
 import com.g2k.calendy.utils.DatabaseHelper;
+import com.g2k.calendy.utils.DatePickerButton;
 import com.g2k.calendy.utils.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -38,6 +39,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
     private static final String TAG = "SignupActivity";
 
     private EditText mEmail, mPassword, mName, mPasswordCheck;
+    private DatePickerButton birthDateButton;
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
     private ProgressDialog pd;
@@ -49,10 +51,13 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
 
         mName = findViewById( R.id.userName);
         mEmail = findViewById( R.id.userEmail);
+        birthDateButton = new DatePickerButton(SignupActivity.this, findViewById(R.id.userDob));
         mPassword = findViewById( R.id.userPassword);
         mPasswordCheck = findViewById( R.id.userPasswordCheck);
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
+
+        birthDateButton.getButton().setText("Birthdate (optional)");
 
         findViewById(R.id.signup_button).setOnClickListener(this);
         findViewById(R.id.signup_back).setOnClickListener(this);
@@ -116,7 +121,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         String name = ((EditText) findViewById(R.id.userName)).getText().toString();
         String university = ((EditText) findViewById(R.id.userUniversity)).getText().toString();
         String city = ((EditText) findViewById(R.id.userCity)).getText().toString();
-        String dateOfBirth = "0"; // TODO fix later
+        String dateOfBirth = birthDateButton.getFormattedDate();
 
         FirebaseUser eUser = mAuth.getCurrentUser();
         eUser.sendEmailVerification().addOnSuccessListener(new OnSuccessListener<Void>() {
