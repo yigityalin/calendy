@@ -1,5 +1,6 @@
 package com.g2k.calendy.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -16,6 +17,7 @@ import android.widget.EditText;
 
 import com.g2k.calendy.R;
 import com.g2k.calendy.UserAdapter;
+import com.g2k.calendy.UserProfileActivity;
 import com.g2k.calendy.utils.User;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -32,7 +34,7 @@ import java.util.List;
  * Use the {@link SearchFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SearchFragment extends Fragment {
+public class SearchFragment extends Fragment implements UserAdapter.UserClickListener {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -87,6 +89,7 @@ public class SearchFragment extends Fragment {
         searchBar = view.findViewById(R.id.search_bar);
         mUsers = new ArrayList<>();
         userAdapter = new UserAdapter(getContext(), mUsers);
+        userAdapter.setUserClickListener(this);
         recyclerView.setAdapter(userAdapter);
 
         readUsers();
@@ -145,7 +148,10 @@ public class SearchFragment extends Fragment {
 
                     for (DataSnapshot s : snapshot.getChildren()) {
                         User user = s.getValue(User.class);
-                        mUsers.add(user);
+
+                        if (user.isVisible()) {
+                            mUsers.add(user);
+                        }
                     }
 
                     userAdapter.notifyDataSetChanged();
@@ -157,5 +163,13 @@ public class SearchFragment extends Fragment {
 
             }
         });
+    }
+
+    @Override
+    public void onUserClick(View view, int position) {
+        Intent intent = new Intent(view.getContext(), UserProfileActivity.class);
+        intent.putExtra("userId", mUsers.get(position).getUid());
+        intent.putExtra("name", mUsers.get(position).getName());
+        startActivity(intent);
     }
 }

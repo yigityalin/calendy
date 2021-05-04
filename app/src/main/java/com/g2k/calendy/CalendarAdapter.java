@@ -24,13 +24,13 @@ import java.util.Random;
  * @version 2021/05/04
  */
 public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.ViewHolder> {
-    private final ArrayList<Calendar> calendarData;
-    private final Drawable[] backgrounds;
+    private ArrayList<Calendar> calendarData;
+    private Drawable[] backgrounds;
     private CalendarClickListener calendarClickListener;
 
     public class ViewHolder extends RecyclerView.ViewHolder
             implements View.OnClickListener {
-        private final TextView calendarNameTextField;
+        private TextView calendarNameTextField;
 
         public ViewHolder(View view) {
             super(view);

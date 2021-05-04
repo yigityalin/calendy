@@ -86,6 +86,8 @@
     <string name="log_out">Log out</string>
     <string name="private_profile">Private Profile</string>
     <string name="fullname">FullName</string>
+    <string name="public_switch">Public</string>
+    <string name="search_users">Search users...</string>
 
     <string-array name="user_tasks">
         <item></item>
