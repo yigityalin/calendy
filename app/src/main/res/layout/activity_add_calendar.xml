@@ -10,30 +10,35 @@
         android:id="@+id/add_calendar_public_checkbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="140dp"
-        android:text="Public"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="32dp"
+        android:text="@string/public_switch"
+        android:textSize="32sp"
+        app:layout_constraintStart_toStartOf="@+id/add_calendar_name"
+        app:layout_constraintTop_toBottomOf="@+id/add_calendar_name" />
 
     <EditText
         android:id="@+id/add_calendar_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
         android:hint="Calendar Name"
         android:inputType="text"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="32sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/add_calendar_public_checkbox" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/add_calendar_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add"
         style="@style/default_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginBottom="32dp"
+        android:text="Add"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/add_calendar_name" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
