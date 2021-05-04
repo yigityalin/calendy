@@ -23,6 +23,7 @@ import com.g2k.calendy.CalendarAdapter;
 import com.g2k.calendy.DetailedCalendarActivity;
 import com.g2k.calendy.EditProfileActivity;
 import com.g2k.calendy.R;
+import com.g2k.calendy.SettingsActivity;
 import com.g2k.calendy.activities.AddNewEventActivity;
 import com.g2k.calendy.utils.Calendar;
 import com.g2k.calendy.utils.CurrentUser;
@@ -94,6 +95,7 @@ public class CalendarsFragment extends Fragment
         view.findViewById(R.id.calendars_add_calendar).setOnClickListener(listener);
         view.findViewById(R.id.calendars_top_bar_profile_button).setOnClickListener(listener);
         view.findViewById(R.id.calendars_top_bar_settings_button).setOnClickListener(listener);
+        view.findViewById(R.id.calendars_top_bar_settings_button).setOnClickListener(listener);
 
         calendarsView = view.findViewById(R.id.calendars_view);
         calendarsView.setAdapter(calendarAdapter);
@@ -118,6 +120,7 @@ public class CalendarsFragment extends Fragment
                     startActivity(new Intent(getContext(), EditProfileActivity.class));
                     break;
                 case R.id.calendars_top_bar_settings_button:
+                    startActivity(new Intent(getContext(), SettingsActivity.class));
                     break;
             }
         }

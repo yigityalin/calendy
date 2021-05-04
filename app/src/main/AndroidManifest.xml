@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.Calendy">
-        <activity android:name=".DetailedCalendarActivity"></activity>
+        <activity android:name=".SettingsActivity"></activity>
+        <activity android:name=".DetailedCalendarActivity" />
         <activity android:name=".EditProfileActivity" />
         <activity android:name=".AddCalendarActivity" />
         <activity android:name=".activities.ForgotPasswordActivity" />
@@ -22,9 +23,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.AddNewGoalActivity"
+        <activity
+            android:name=".activities.AddNewGoalActivity"
             android:label="Add New Goal"
-            android:parentActivityName=".activities.MainActivity"/>
+            android:parentActivityName=".activities.MainActivity" />
         <activity
             android:name=".activities.AddNewReminderActivity"
             android:label="Add New Reminder"
