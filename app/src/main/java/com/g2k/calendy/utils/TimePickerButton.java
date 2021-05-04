@@ -32,14 +32,26 @@ public class TimePickerButton implements View.OnClickListener {
         button.setOnClickListener(this);
     }
 
+    /**
+     * Get hour
+     * @return (int) hour
+     */
     public int getHour() {
         return hour;
     }
 
+    /**
+     * Get minute
+     * @return (int) minute
+     */
     public int getMinute() {
         return minute;
     }
 
+    /**
+     * Get formatted time of now
+     * @return (String) "hh mm"
+     */
     private String getCurrentTime() {
         Calendar calendar = Calendar.getInstance();
         hour = calendar.get(Calendar.HOUR_OF_DAY);
@@ -56,7 +68,11 @@ public class TimePickerButton implements View.OnClickListener {
         return getFormattedHour() + getFormattedMinute();
     }
 
-    public String getFormattedHour() {
+    /**
+     * Format hour
+     * @return (String) hh
+     */
+    private String getFormattedHour() {
         if (hour < 10) {
             return "0" + hour;
         } else {
@@ -64,7 +80,11 @@ public class TimePickerButton implements View.OnClickListener {
         }
     }
 
-    public String getFormattedMinute() {
+    /**
+     * Format minute
+     * @return (String) mm
+     */
+    private String getFormattedMinute() {
         if (minute < 10) {
             return "0" + minute;
         } else {
@@ -72,6 +92,9 @@ public class TimePickerButton implements View.OnClickListener {
         }
     }
 
+    /**
+     * Initialize TimePicker button
+     */
     private void initTimePicker() {
         TimePickerDialog.OnTimeSetListener timeSetListener = new TimePickerDialog.OnTimeSetListener() {
             @Override
@@ -80,7 +103,6 @@ public class TimePickerButton implements View.OnClickListener {
                 minute = selectedMinute;
 
                 button.setText(getFormattedHour() + ":" + getFormattedMinute());
-//                button.setText(String.format(Locale.getDefault(), "%02d:%02d", hour, minute));
             }
         };
 
@@ -91,6 +113,10 @@ public class TimePickerButton implements View.OnClickListener {
                 true);
     }
 
+    /**
+     * Shows TimePicker button on click
+     * @param v (View)
+     */
     @Override
     public void onClick(View v) {
         timePickerDialog.show();
