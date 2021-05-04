@@ -14,7 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ViewSwitcher;
 
-import com.g2k.calendy.RecyclerViewAdapter;
+import com.g2k.calendy.TaskAdapter;
 import com.g2k.calendy.activities.AddNewEventActivity;
 import com.g2k.calendy.activities.AddNewGoalActivity;
 import com.g2k.calendy.activities.AddNewReminderActivity;
@@ -26,6 +26,10 @@ import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+
 /**
  * Home fragment for displaying events & creating new ones
  * using floating action button (fab)
@@ -36,12 +40,8 @@ public class HomeFragment extends Fragment {
     private DatePickerButton datePickerButton;
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();;
-    private Task tasks[];
-    private String taskNames[] = { "task1", "task2", "task3", "task4", "task5", "task6", "task7"};
-    private String taskStartTimes[] = { "12.00", "13.00", "14.00", "15.00", "16.00", "17.00", "18.00"};
-    private String taskEndTimes[] = { "12.00", "13.00", "14.00", "15.00", "16.00", "17.00", "18.00"};
-    private CurrentUserCalendars calendars;
-    private RecyclerView rV;
+    private HashMap<String, Task> tasks;
+    private RecyclerView tasksView;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -101,21 +101,23 @@ public class HomeFragment extends Fragment {
         fabTask.setOnClickListener(fabListener);
         fabEvent.setOnClickListener(fabListener);
 
-        rV = view.findViewById( R.id.recyclerView);
-        /*
-        for(int i = 0; i < CurrentUserCalendars.getCalendars().get(0).getTasks().size(); i++) {
-            tasks[i] = CurrentUserCalendars.getCalendars().get(0).getTasks().get( i);
-            taskNames[i] = tasks[i].toString();
-        }*/
+        tasksView = view.findViewById( R.id.recyclerView);
 
-        RecyclerViewAdapter rVA = new RecyclerViewAdapter( this.getContext(), "Just a Calendar", taskNames, taskStartTimes, taskEndTimes);
-        rV.setAdapter( rVA);
-        rV.setLayoutManager( new LinearLayoutManager( this.getContext()));
+        try {
+            datePickerButton.getButton().setText(datePickerButton.getTodaysDate());
+            tasks = CurrentUserCalendars.getTasksOnDate(datePickerButton.getFormattedDate());
+
+            TaskAdapter taskAdapter = new TaskAdapter( this.getContext(), tasks);
+            tasksView.setAdapter( taskAdapter);
+            tasksView.setLayoutManager( new LinearLayoutManager( this.getContext()));
+
+        } catch (Exception e) {
+            datePickerButton.getButton().setText("Please Reload");
+        }
 
         return view;
     }
 
-    // TODO fab intents
     private final View.OnClickListener fabListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {

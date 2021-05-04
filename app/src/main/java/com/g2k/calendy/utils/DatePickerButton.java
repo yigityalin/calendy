@@ -59,10 +59,10 @@ public class DatePickerButton implements View.OnClickListener {
      * @return (String) month added with 0
      */
     public String getFormattedMonth() {
-        if (month < 10) {
-            return "0" + month;
+        if (month + 1 < 10) {
+            return "0" + (month + 1);
         } else {
-            return "" + month;
+            return "" + (month + 1);
         }
     }
 
@@ -78,7 +78,7 @@ public class DatePickerButton implements View.OnClickListener {
         }
     }
 
-    private String getTodaysDate() {
+    public String getTodaysDate() {
         Calendar calendar = Calendar.getInstance();
         day = calendar.get(Calendar.DAY_OF_MONTH);
         month = calendar.get(Calendar.MONTH);
@@ -128,4 +128,7 @@ public class DatePickerButton implements View.OnClickListener {
         datePickerDialog.show();
     }
 
+    public Button getButton() {
+        return button;
+    }
 }

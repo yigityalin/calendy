@@ -34,7 +34,7 @@ public class AddNewGoalActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_goal);
-
+        System.out.println("Hey!" + CurrentUserCalendars.getTasksOnDate("20210504"));
         spinner = findViewById(R.id.add_goal_calendar_spinner);
         description = findViewById(R.id.add_goal_description);
         startDateButton = new DatePickerButton(getApplicationContext(),
