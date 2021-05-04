@@ -3,9 +3,9 @@ package com.g2k.calendy.utils;
 import java.util.Date;
 
 /**
- * Abstract Task class for Event, Reminder, Goal
+ * Task class for Event, Reminder, Goal
  * @author Mehmet Kağan İlbak
- * @version 2021/05/30
+ * @version 2021/05/04
  */
 public class Task implements Comparable {
     protected String taskType;

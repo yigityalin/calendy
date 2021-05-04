@@ -15,7 +15,7 @@ import java.util.Calendar;
 /**
  * Helper for date picker button
  * @author Mehmet Kağan İlbak
- * @version 2021/04/23
+ * @version 2021/05/04
  */
 public class DatePickerButton implements View.OnClickListener {
     private Button button;
@@ -27,18 +27,6 @@ public class DatePickerButton implements View.OnClickListener {
     private int month;
     private int day;
 
-    public int getYear() {
-        return year;
-    }
-
-    public int getMonth() {
-        return month;
-    }
-
-    public int getDay() {
-        return day;
-    }
-
     public DatePickerButton(Context context, Button button) {
         this.context = context;
         this.button = button;
@@ -46,6 +34,30 @@ public class DatePickerButton implements View.OnClickListener {
         button.setText(getTodaysDate()); // getTodaysDate() also initializes year, month, day
         initDatePicker();
         button.setOnClickListener(this);
+    }
+
+    /**
+     * Get selected year
+     * @return (int) year
+     */
+    public int getYear() {
+        return year;
+    }
+
+    /**
+     * Get selected month (indexted to 0)
+     * @return (int) month
+     */
+    public int getMonth() {
+        return month;
+    }
+
+    /**
+     * Get selected day
+     * @return (int) day
+     */
+    public int getDay() {
+        return day;
     }
 
     /**
@@ -80,6 +92,10 @@ public class DatePickerButton implements View.OnClickListener {
         }
     }
 
+    /**
+     * Get todays date formatted as JAN 01 2021
+     * @return
+     */
     public String getTodaysDate() {
         Calendar calendar = Calendar.getInstance();
         day = calendar.get(Calendar.DAY_OF_MONTH);
@@ -89,6 +105,9 @@ public class DatePickerButton implements View.OnClickListener {
         return getMonthFormat(month) + " " + getFormattedDay() + " " + year;
     }
 
+    /**
+     * Initialize DatePicker button
+     */
     private void initDatePicker() {
         Calendar calendar;
         int cYear;
@@ -113,10 +132,22 @@ public class DatePickerButton implements View.OnClickListener {
         datePickerDialog = new DatePickerDialog(context, dateSetListener, cYear, cMonth, cDay);
     }
 
+    /**
+     * Make date String formatted as JAN 01 2021
+     * @param dayOfMonth (int) day
+     * @param month (int) month (0 indexed)
+     * @param year (int) year
+     * @return (String) MMM DD YYYY
+     */
     private String makeDateString(int dayOfMonth, int month, int year) {
         return getMonthFormat(month) + " " + dayOfMonth + " " + year;
     }
 
+    /**
+     * Convert month index to text
+     * @param month (int) month index
+     * @return (String) formatted month (such as JAN)
+     */
     private String getMonthFormat(int month) {
         String months = "JANFEBMARAPRMAYJUNJULAUGSEPOCTNOVDEC";
 
@@ -127,11 +158,19 @@ public class DatePickerButton implements View.OnClickListener {
         }
     }
 
+    /**
+     * onClick method that will show dialog
+     * @param v
+     */
     @Override
     public void onClick(View v) {
         datePickerDialog.show();
     }
 
+    /**
+     * Get button to modify it
+     * @return (Button) button
+     */
     public Button getButton() {
         return button;
     }

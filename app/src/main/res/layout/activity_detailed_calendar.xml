@@ -6,4 +6,34 @@
     android:layout_height="match_parent"
     tools:context=".DetailedCalendarActivity">
 
+    <TextView
+        android:id="@+id/detailed_calendar_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:textSize="32sp"
+        android:textStyle="bold|italic"
+        android:text="@string/calendar_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:src="@drawable/ic_baseline_delete_forever_48"
+        android:onClick="deleteCalendar"
+        app:layout_constraintBottom_toBottomOf="@+id/detailed_calendar_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/detailed_calendar_name" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/detailed_calendar_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="96dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

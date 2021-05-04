@@ -37,7 +37,7 @@ import java.util.HashMap;
  *     Date birthDate
  *     from Firebase
  * @author Mehmet Kağan İlbak
- * @version 2021/05/03
+ * @version 2021/05/04
  */
 public class DatabaseHelper {
     private static FirebaseAuth mAuth;
@@ -85,6 +85,9 @@ public class DatabaseHelper {
         mDatabase.child("users").child(CurrentUser.getInstance().getUid()).setValue(CurrentUser.getInstance());
     }
 
+    /**
+     * Initialize CurrentUserCalendars class. Enough to run once then it will update it automatically
+     */
     public static void initCurrentUserCalendars() {
         String uid = mAuth.getCurrentUser().getUid();
 
@@ -107,6 +110,9 @@ public class DatabaseHelper {
         });
     }
 
+    /**
+     * Updates Calendars of CurrentUserCalendars to database
+     */
     public static void updateCurrentUserCalendars() {
         for (Calendar calendar : CurrentUserCalendars.getCalendars()) {
             mDatabase.child("calendars").child(getCurrentUserUID()).child(calendar.getName()).setValue(calendar);
@@ -143,6 +149,10 @@ public class DatabaseHelper {
         return tasks;
     }
 
+    /**
+     * Get current user's uid
+     * @return (String) uid
+     */
     public static String getCurrentUserUID() {
         return mAuth.getCurrentUser().getUid();
     }
