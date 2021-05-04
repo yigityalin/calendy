@@ -23,11 +23,17 @@ import java.util.HashMap;
 
 public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
     private final Context context;
-    private final HashMap<String, Task> tasks;
+    private final HashMap<String, ArrayList<Task>> tasksMap;
+    private final ArrayList<String> keys;
+    private final ArrayList<Task> tasks;
 
-    public TaskAdapter(Context context, HashMap<String, Task> tasks) {
+    public TaskAdapter(Context context, HashMap<String, ArrayList<Task>> tasksMap) {
+        tasks = new ArrayList<>();
+        keys = new ArrayList<>(tasksMap.keySet());
+        System.out.println("keys:" + keys);
         this.context = context;
-        this.tasks = tasks;
+        this.tasksMap = tasksMap;
+        combineIntoOneList();
     }
 
     @NonNull
@@ -42,11 +48,11 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         String startTime = tasks.get(position).getStartDate().substring(8, 12);
         String endTime = tasks.get(position).getEndDate().substring(8, 12);
-        String formattedStartTime = startTime.substring(2) + ":" + startTime.substring(2, 4);
-        String formattedEndTime = endTime.substring(2) + ":" + endTime.substring(2, 4);
+        String formattedStartTime = startTime.substring(0, 2) + ":" + startTime.substring(2, 4);
+        String formattedEndTime = endTime.substring(0, 2) + ":" + endTime.substring(2, 4);
 
         holder.taskDescription.setText(tasks.get(position).getDescription());
-        holder.calendarName.setText(tasks.get(position).getTaskType());
+        holder.taskType.setText(tasks.get(position).getTaskType());
         holder.startTime.setText(formattedStartTime);
         holder.endTime.setText(formattedEndTime);
     }
@@ -58,17 +64,24 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private final TextView taskDescription;
-        private final TextView calendarName;
+        private final TextView taskType;
         private final TextView startTime;
         private final TextView endTime;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             taskDescription = itemView.findViewById(R.id.taskD);
-            calendarName = itemView.findViewById(R.id.calName);
+            taskType = itemView.findViewById(R.id.calName);
             startTime = itemView.findViewById(R.id.startT);
             endTime = itemView.findViewById(R.id.endT);
         }
     }
 
+    private void combineIntoOneList() {
+        for (String k : keys) {
+            for (Task t : tasksMap.get(k)) {
+                tasks.add(t);
+            }
+        }
+    }
 }

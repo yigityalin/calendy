@@ -40,7 +40,7 @@ public class HomeFragment extends Fragment {
     private DatePickerButton datePickerButton;
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();;
-    private HashMap<String, Task> tasks;
+    private HashMap<String, ArrayList<Task>> tasks;
     private RecyclerView tasksView;
 
     // TODO: Rename parameter arguments, choose names that match

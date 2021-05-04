@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 
 import com.g2k.calendy.R;
+import com.g2k.calendy.TaskAdapter;
 
 import java.util.Calendar;
 
@@ -17,8 +18,9 @@ import java.util.Calendar;
  * @version 2021/04/23
  */
 public class DatePickerButton implements View.OnClickListener {
-    private final Button button;
-    private final Context context;
+    private Button button;
+    private Context context;
+    private TaskAdapter homeFragmentAdapter;
 
     private DatePickerDialog datePickerDialog;
     private int year;
