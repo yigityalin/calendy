@@ -17,4 +17,5 @@
     <color name="blue">#0000FF</color>
     <color name="red">#FF0000</color>
     <color name="green">#008000</color>
+    <color name="home_frag_rv_bg_color">#869C27B0</color>
 </resources>
