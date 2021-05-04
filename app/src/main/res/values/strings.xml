@@ -81,6 +81,7 @@
     <string name="reset">Reset</string>
     <string name="start_date">Start Date</string>
     <string name="end_date">End Date</string>
+    <string name="birthdate_optional">Birthdate (optional)</string>
 
     <string-array name="user_tasks">
         <item></item>

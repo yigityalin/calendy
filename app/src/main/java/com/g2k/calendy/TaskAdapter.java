@@ -26,18 +26,12 @@ import java.util.HashMap;
  */
 
 public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
-    private final Context context;
-    private final HashMap<String, ArrayList<Task>> tasksMap;
-    private final ArrayList<String> keys;
-    private final ArrayList<Task> tasks;
+    private Context context;
+    private ArrayList<Task> tasks;
 
-    public TaskAdapter(Context context, HashMap<String, ArrayList<Task>> tasksMap) {
-        tasks = new ArrayList<>();
-        keys = new ArrayList<>(tasksMap.keySet());
-        System.out.println("keys:" + keys);
+    public TaskAdapter(Context context, ArrayList<Task> tasks) {
+        this.tasks = tasks;
         this.context = context;
-        this.tasksMap = tasksMap;
-        combineIntoOneList();
     }
 
     @NonNull
@@ -79,21 +73,5 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
             startTime = itemView.findViewById(R.id.startT);
             endTime = itemView.findViewById(R.id.endT);
         }
-    }
-
-    private void combineIntoOneList() {
-        for (String k : keys) {
-            for (Task t : tasksMap.get(k)) {
-                if ("Event".equals(t.getTaskType())) {
-                    tasks.add(new Event(t.getDescription(), t.getStartDate(), t.getEndDate()));
-                } else if ("Reminder".equals(t.getTaskType())) {
-                    tasks.add(new Reminder(t.getDescription(), t.getStartDate()));
-                } else if ("Goal".equals(t.getTaskType())) {
-                    tasks.add(new Goal(t.getDescription(), t.getStartDate(), t.getEndDate()));
-                }
-            }
-        }
-
-        Collections.sort(tasks); // Sort by startDate
     }
 }

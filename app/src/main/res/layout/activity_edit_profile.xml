@@ -6,48 +6,150 @@
     android:layout_height="match_parent"
     tools:context=".EditProfileActivity">
 
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:text="Name"
+        android:textSize="25sp"
+        android:textStyle="italic|bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/ic_baseline_edit_24"
+        app:layout_constraintBottom_toBottomOf="@+id/textView4"
+        app:layout_constraintStart_toEndOf="@+id/textView4"
+        app:layout_constraintTop_toTopOf="@+id/textView4" />
+
     <EditText
         android:id="@+id/edit_profile_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:drawablePadding="12dp"
-        android:layout_marginTop="60dp"
-        android:ems="10"
+        android:layout_marginTop="16dp"
         android:background="@drawable/custom_input"
-        android:inputType="textPersonName"
+        android:drawablePadding="12dp"
+        android:ems="10"
         android:hint="@string/name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="City"
+        android:textSize="25sp"
+        android:textStyle="italic|bold"
+        app:layout_constraintStart_toStartOf="@+id/edit_profile_name"
+        app:layout_constraintTop_toBottomOf="@+id/edit_profile_name" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/ic_baseline_edit_24"
+        app:layout_constraintBottom_toBottomOf="@+id/textView10"
+        app:layout_constraintStart_toEndOf="@+id/textView10"
+        app:layout_constraintTop_toTopOf="@+id/textView10" />
 
     <EditText
         android:id="@+id/edit_profile_city"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:ems="10"
+        android:layout_marginTop="16dp"
         android:background="@drawable/custom_input"
-        android:inputType="textPersonName"
+        android:ems="10"
         android:hint="@string/city"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_profile_name" />
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/textView10"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="University"
+        android:textSize="25sp"
+        android:textStyle="italic|bold"
+        app:layout_constraintStart_toStartOf="@+id/edit_profile_city"
+        app:layout_constraintTop_toBottomOf="@+id/edit_profile_city" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/ic_baseline_edit_24"
+        app:layout_constraintBottom_toBottomOf="@+id/textView11"
+        app:layout_constraintStart_toEndOf="@+id/textView11"
+        app:layout_constraintTop_toTopOf="@+id/textView11" />
     <EditText
         android:id="@+id/edit_profile_university"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:ems="10"
+        android:layout_marginTop="16dp"
         android:background="@drawable/custom_input"
-        android:inputType="textPersonName"
+        android:ems="10"
         android:hint="@string/university"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_profile_city" />
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/textView11"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Email"
+        android:textSize="25sp"
+        android:textStyle="italic|bold"
+        app:layout_constraintStart_toStartOf="@+id/edit_profile_university"
+        app:layout_constraintTop_toBottomOf="@+id/edit_profile_university" />
+
+    <TextView
+        android:id="@+id/edit_profile_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="example@example.com"
+        android:textSize="25sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="@+id/textView12"
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Date of Birth"
+        android:textSize="25sp"
+        android:textStyle="italic|bold"
+        app:layout_constraintStart_toStartOf="@+id/edit_profile_email"
+        app:layout_constraintTop_toBottomOf="@+id/edit_profile_email" />
+
+    <TextView
+        android:id="@+id/edit_profile_birth_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="01/01/2000"
+        android:textSize="25sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="@+id/textView14"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/edit_profile_save_button"
+        style="@style/default_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -55,7 +157,6 @@
         android:layout_marginBottom="32dp"
         android:text="@string/save"
         android:textSize="44sp"
-        style="@style/default_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

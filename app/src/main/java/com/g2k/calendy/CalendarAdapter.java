@@ -20,8 +20,8 @@ import java.util.Random;
 /**
  * Adapter class for recycleview in Calendars fragment
  *
- * @author Yiğit Yalın
- * @version 2021/04/29
+ * @author Yiğit Yalın, Mehmet Kağan İlbak
+ * @version 2021/05/04
  */
 public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.ViewHolder> {
     private final ArrayList<Calendar> calendarData;

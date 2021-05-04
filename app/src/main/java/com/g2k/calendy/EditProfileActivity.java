@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.g2k.calendy.utils.CurrentUser;
 import com.g2k.calendy.utils.DatabaseHelper;
@@ -15,9 +16,11 @@ import com.g2k.calendy.utils.DatabaseHelper;
  * @version 2021/05/03
  */
 public class EditProfileActivity extends AppCompatActivity {
-    EditText name;
-    EditText city;
-    EditText university;
+    private EditText name;
+    private EditText city;
+    private EditText university;
+    private TextView email;
+    private TextView birthDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +30,14 @@ public class EditProfileActivity extends AppCompatActivity {
         name = findViewById(R.id.edit_profile_name);
         city = findViewById(R.id.edit_profile_city);
         university = findViewById(R.id.edit_profile_university);
+        email = findViewById(R.id.edit_profile_email);
+        birthDate = findViewById(R.id.edit_profile_birth_date);
 
         name.setText(CurrentUser.getInstance().getName());
         city.setText(CurrentUser.getInstance().getCity());
         university.setText(CurrentUser.getInstance().getUniversity());
+        email.setText(CurrentUser.getInstance().getEmail());
+        birthDate.setText(CurrentUser.getInstance().getBirthDate());
 
         findViewById(R.id.edit_profile_save_button).setOnClickListener(listener);
     }

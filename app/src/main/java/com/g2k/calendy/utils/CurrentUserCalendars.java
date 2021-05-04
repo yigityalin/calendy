@@ -1,6 +1,7 @@
 package com.g2k.calendy.utils;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Set;
 
@@ -67,5 +68,66 @@ public class CurrentUserCalendars {
         }
 
         return returnCalendars;
+    }
+
+    public static ArrayList<Task> getTodaysTasks() {
+        return combineIntoOneList(getTasksOnDate(getFormattedTodaysDate()));
+    }
+
+    private static ArrayList<Task> combineIntoOneList(HashMap<String, ArrayList<Task>> tasksMap) {
+        ArrayList<String> keys;
+        ArrayList<Task> tasks;
+
+        tasks = new ArrayList<>();
+        keys = new ArrayList<>(tasksMap.keySet());
+
+        for (String k : keys) {
+            for (Task t : tasksMap.get(k)) {
+                if ("Event".equals(t.getTaskType())) {
+                    tasks.add(new Event(t.getDescription(), t.getStartDate(), t.getEndDate()));
+                } else if ("Reminder".equals(t.getTaskType())) {
+                    tasks.add(new Reminder(t.getDescription(), t.getStartDate()));
+                } else if ("Goal".equals(t.getTaskType())) {
+                    tasks.add(new Goal(t.getDescription(), t.getStartDate(), t.getEndDate()));
+                }
+            }
+        }
+
+        Collections.sort(tasks); // Sort by startDate
+
+        return tasks;
+    }
+
+    private static String getFormattedMonth(int month) {
+        if (month + 1 < 10) {
+            return "0" + (month + 1);
+        } else {
+            return "" + (month + 1);
+        }
+    }
+
+    /**
+     * Turn 3 to 03
+     * @return (String) day added with 0
+     */
+    private static String getFormattedDay(int day) {
+        if (day < 10) {
+            return "0" + day;
+        } else {
+            return "" + day;
+        }
+    }
+
+    /**
+     * Get date formatted as YYYYMMDD
+     * @return (String) YYYYMMDD
+     */
+    private static String getFormattedTodaysDate() {
+        java.util.Calendar calendar = java.util.Calendar.getInstance();
+        int day = calendar.get(java.util.Calendar.DAY_OF_MONTH);
+        int month = calendar.get(java.util.Calendar.MONTH);
+        int year = calendar.get(java.util.Calendar.YEAR);
+
+        return "" + year + getFormattedMonth(month) + getFormattedDay(day);
     }
 }
