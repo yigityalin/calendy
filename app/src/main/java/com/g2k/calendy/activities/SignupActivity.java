@@ -18,6 +18,8 @@ import com.g2k.calendy.utils.CurrentUserCalendars;
 import com.g2k.calendy.utils.DatabaseHelper;
 import com.g2k.calendy.utils.User;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -115,6 +117,20 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         String university = ((EditText) findViewById(R.id.userUniversity)).getText().toString();
         String city = ((EditText) findViewById(R.id.userCity)).getText().toString();
         String dateOfBirth = "0"; // TODO fix later
+
+        FirebaseUser eUser = mAuth.getCurrentUser();
+        eUser.sendEmailVerification().addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                Toast.makeText( SignupActivity.this, "Please check your email to verify your account.", Toast.LENGTH_LONG).show();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.d( TAG, "onFailure: Email could not be sent " + e.getMessage());
+            }
+        });
+
         User user = new User(firebaseUser.getUid(), firebaseUser.getEmail(), name, university, city, true, dateOfBirth);
 
         writeNewUser(user.getUid(), user);
