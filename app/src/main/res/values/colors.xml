@@ -13,4 +13,5 @@
     <color name="orange">#FFA500</color>
     <color name="coral">#FF7F50</color>
     <color name="default_button">#D811C4</color>
+    <color name="default_edittext">#FF9EF5</color>
 </resources>

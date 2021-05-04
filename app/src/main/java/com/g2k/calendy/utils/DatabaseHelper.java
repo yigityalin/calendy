@@ -107,26 +107,6 @@ public class DatabaseHelper {
         });
     }
 
-    public static void initCurrentUserCalendarsTasks() {
-        String uid = mAuth.getCurrentUser().getUid();
-
-        for (Calendar c : CurrentUserCalendars.getCalendars()) {
-            mDatabase.child("calendars").child(uid).child(c.getName()).addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    for (DataSnapshot s : snapshot.getChildren()) {
-                        c.addTask(s.getValue(com.g2k.calendy.utils.Task.class));
-                    }
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                }
-            });
-        }
-    }
-
     public static void updateCurrentUserCalendars() {
         for (Calendar calendar : CurrentUserCalendars.getCalendars()) {
             mDatabase.child("calendars").child(getCurrentUserUID()).child(calendar.getName()).setValue(calendar);
@@ -161,20 +141,6 @@ public class DatabaseHelper {
                     }
                 });
         return tasks;
-    }
-
-    /**
-     * Write new task to given calendar in database with unique id
-     * @param calendarName (String) name of the calendar to write
-     * @param task (Task) task to write
-     */
-    public static void writeNewTask(String calendarName, Task task) {
-        mDatabase.child("calendars")
-                .child(getCurrentUserUID())
-                .child(calendarName)
-                .child("tasks")
-                .child(task.getTaskID())
-                .setValue(task);
     }
 
     public static String getCurrentUserUID() {
