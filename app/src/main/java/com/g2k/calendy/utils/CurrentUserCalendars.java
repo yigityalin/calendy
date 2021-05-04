@@ -15,10 +15,18 @@ public class CurrentUserCalendars {
         return calendars;
     }
 
+    /**
+     * Initialize calendars, must be run outside of Firebase methods
+     */
     public static void initialize() {
         calendars = new ArrayList<>();
     }
 
+    /**
+     * Get calendar with given name
+     * @param name (String) Calendar name
+     * @return (Calendar) with given name
+     */
     public static Calendar getCalendar(String name) {
         for (Calendar c : calendars) {
             if (c.getName().equals(name)) {
@@ -70,10 +78,19 @@ public class CurrentUserCalendars {
         return returnCalendars;
     }
 
+    /**
+     * Get today's tasks
+     * @return (ArrayList<Task>) today's tasks
+     */
     public static ArrayList<Task> getTodaysTasks() {
         return combineIntoOneList(getTasksOnDate(getFormattedTodaysDate()));
     }
 
+    /**
+     * Helper for getting todays tasks sorted by start date
+     * @param tasksMap
+     * @return
+     */
     private static ArrayList<Task> combineIntoOneList(HashMap<String, ArrayList<Task>> tasksMap) {
         ArrayList<String> keys;
         ArrayList<Task> tasks;
@@ -98,6 +115,11 @@ public class CurrentUserCalendars {
         return tasks;
     }
 
+    /**
+     * Getting formatted month
+     * @param month (int) month index
+     * @return (String) MM
+     */
     private static String getFormattedMonth(int month) {
         if (month + 1 < 10) {
             return "0" + (month + 1);

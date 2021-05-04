@@ -13,6 +13,16 @@ public class CurrentUser {
         return user;
     }
 
+    /**
+     * Initialize CurrentUser with fields, should never be used
+     * @param uid (String)
+     * @param email (String)
+     * @param name (String)
+     * @param university (String)
+     * @param city (String)
+     * @param isVisible (boolean)
+     * @param birthDate (String)
+     */
     public static void initialize(String uid,
                                   String email,
                                   String name,

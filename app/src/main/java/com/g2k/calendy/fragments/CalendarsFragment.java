@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import com.g2k.calendy.AddCalendarActivity;
 import com.g2k.calendy.CalendarAdapter;
+import com.g2k.calendy.DetailedCalendarActivity;
 import com.g2k.calendy.EditProfileActivity;
 import com.g2k.calendy.R;
 import com.g2k.calendy.activities.AddNewEventActivity;
@@ -38,15 +39,13 @@ import java.util.ArrayList;
  */
 public class CalendarsFragment extends Fragment
         implements CalendarAdapter.CalendarClickListener {
-    // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    RecyclerView calendarsView;
-    CalendarAdapter calendarAdapter;
-    ArrayList<Calendar> dataSet;
+    private RecyclerView calendarsView;
+    private CalendarAdapter calendarAdapter;
+    private ArrayList<Calendar> dataSet;
 
     private String mParam1;
     private String mParam2;
@@ -63,7 +62,6 @@ public class CalendarsFragment extends Fragment
      * @param param2 Parameter 2.
      * @return A new instance of fragment CalendarsFragment.
      */
-    // TODO: Rename and change types and number of parameters
     public static CalendarsFragment newInstance(String param1, String param2) {
         CalendarsFragment fragment = new CalendarsFragment();
         Bundle args = new Bundle();
@@ -134,8 +132,10 @@ public class CalendarsFragment extends Fragment
     @Override
     public void onCalendarClick(View view, int position)
     {
-        //TODO: fix activity class
-        startActivity(new Intent(view.getContext(), AddNewEventActivity.class));
+        Intent intent = new Intent(view.getContext(), DetailedCalendarActivity.class);
+        intent.putExtra("calendarName", dataSet.get(position).getName());
+        intent.putExtra("calendarIndex", "" + position);
+        startActivity(intent);
     }
 
     private Drawable[] createBackgroundsArray()

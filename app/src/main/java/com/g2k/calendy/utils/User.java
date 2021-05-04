@@ -6,7 +6,7 @@ import java.util.Date;
 /**
  * User class to hold calendars, uid, email, name, university, city, visibility, birthDate
  * @author Mehmet Kağan İlbak
- * @version 2021/05/03
+ * @version 2021/05/04
  */
 public class User {
     private ArrayList<Calendar> calendars;
