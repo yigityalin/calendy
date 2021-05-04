@@ -22,16 +22,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.AddNewGoalActivity" />
+        <activity android:name=".activities.AddNewGoalActivity"
+            android:label="Add New Goal"
+            android:parentActivityName=".activities.MainActivity"/>
         <activity
             android:name=".activities.AddNewReminderActivity"
             android:label="Add New Reminder"
             android:parentActivityName=".activities.MainActivity" />
-        <activity android:name=".activities.MainActivity" />
         <activity
             android:name=".activities.AddNewEventActivity"
             android:label="Add New Event"
             android:parentActivityName=".activities.MainActivity" />
+        <activity android:name=".activities.MainActivity" />
     </application>
 
 </manifest>

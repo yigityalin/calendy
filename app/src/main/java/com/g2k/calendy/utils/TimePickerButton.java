@@ -45,7 +45,7 @@ public class TimePickerButton implements View.OnClickListener {
         hour = calendar.get(Calendar.HOUR_OF_DAY);
         minute = calendar.get(Calendar.MINUTE);
 
-        return hour + ":" + minute;
+        return getFormattedHour() + ":" + getFormattedMinute();
     }
 
     /**
