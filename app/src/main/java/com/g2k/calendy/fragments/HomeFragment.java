@@ -29,7 +29,7 @@ import com.google.firebase.database.DatabaseReference;
 /**
  * Home fragment for displaying events & creating new ones
  * using floating action button (fab)
- * @author Mehmet Kağan İlbak, Yiğit Yalın
+ * @author Mehmet Kağan İlbak, Yiğit Yalın, Mustafa Cem Gülümser
  * @version 2021/05/03
  */
 public class HomeFragment extends Fragment {
@@ -37,7 +37,9 @@ public class HomeFragment extends Fragment {
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();;
     private Task tasks[];
-    private String taskNames[];
+    private String taskNames[] = { "task1", "task2", "task3", "task4", "task5", "task6", "task7"};
+    private String taskStartTimes[] = { "12.00", "13.00", "14.00", "15.00", "16.00", "17.00", "18.00"};
+    private String taskEndTimes[] = { "12.00", "13.00", "14.00", "15.00", "16.00", "17.00", "18.00"};
     private CurrentUserCalendars calendars;
     private RecyclerView rV;
 
@@ -100,12 +102,13 @@ public class HomeFragment extends Fragment {
         fabEvent.setOnClickListener(fabListener);
 
         rV = view.findViewById( R.id.recyclerView);
+        /*
         for(int i = 0; i < CurrentUserCalendars.getCalendars().get(0).getTasks().size(); i++) {
             tasks[i] = CurrentUserCalendars.getCalendars().get(0).getTasks().get( i);
             taskNames[i] = tasks[i].toString();
-        }
+        }*/
 
-        RecyclerViewAdapter rVA = new RecyclerViewAdapter( this.getContext(), taskNames);
+        RecyclerViewAdapter rVA = new RecyclerViewAdapter( this.getContext(), "Just a Calendar", taskNames, taskStartTimes, taskEndTimes);
         rV.setAdapter( rVA);
         rV.setLayoutManager( new LinearLayoutManager( this.getContext()));
 

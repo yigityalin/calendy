@@ -9,14 +9,26 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+/**
+ * Editing the recycle view
+ * @author Mustafa Cem Gülümser
+ * @version 2021/05/04
+ */
+
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.xViewHolder>{
 
-    String data1[];
+    String calendarName;
+    String taskDesc[];
+    String startTime[];
+    String endTime[];
     Context context;
 
-    public RecyclerViewAdapter(Context ct, String s1[]) {
+    public RecyclerViewAdapter(Context ct, String theCalendarName, String theTaskDesc[], String theStartTime[], String theEndTime[] ) {
         context = ct;
-        data1 = s1;
+        calendarName = theCalendarName;
+        taskDesc = theTaskDesc;
+        startTime = theStartTime;
+        endTime = theEndTime;
     }
 
     @NonNull
@@ -29,21 +41,30 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(@NonNull xViewHolder holder, int position) {
-        holder.text1.setText( data1[position]);
+        holder.text1.setText( taskDesc[position]);
+        holder.text2.setText( calendarName);
+        holder.text3.setText( startTime[position]);
+        holder.text4.setText( endTime[position]);
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return taskDesc.length;
     }
 
     public class xViewHolder extends RecyclerView.ViewHolder{
 
         TextView text1;
+        TextView text2;
+        TextView text3;
+        TextView text4;
 
         public xViewHolder(@NonNull View itemView) {
             super(itemView);
-            text1 = itemView.findViewById( R.id.rv_text);
+            text1 = itemView.findViewById( R.id.taskD);
+            text2 = itemView.findViewById( R.id.calName);
+            text3 = itemView.findViewById( R.id.startT);
+            text4 = itemView.findViewById( R.id.endT);
         }
     }
 
