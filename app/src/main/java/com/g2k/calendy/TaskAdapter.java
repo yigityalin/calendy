@@ -9,14 +9,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.g2k.calendy.utils.Event;
-import com.g2k.calendy.utils.Goal;
-import com.g2k.calendy.utils.Reminder;
 import com.g2k.calendy.utils.Task;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
 
 /**
  * Adapter Class for RecyclerView in HomeFragment
@@ -27,6 +22,15 @@ import java.util.HashMap;
  */
 
 public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
+    private final String EVENT_STRING = "Event";
+    private final int EVENT_VIEW_TYPE = 0;
+
+    private final String GOAL_STRING = "Goal";
+    private final int GOAL_VIEW_TYPE = 1;
+
+    private final String REMINDER_STRING = "Reminder";
+    private final int REMINDER_VIEW_TYPE = 2;
+
     private Context context;
     private ArrayList<Task> tasks;
 
@@ -35,11 +39,53 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
         this.context = context;
     }
 
+    @Override
+    public int getItemViewType(int position) {
+        int type;
+
+        switch (tasks.get(position).getClass().getSimpleName()) {
+            case EVENT_STRING:
+                type = EVENT_VIEW_TYPE;
+                break;
+
+            case GOAL_STRING:
+                type = GOAL_VIEW_TYPE;
+                break;
+
+            case REMINDER_STRING:
+                type = REMINDER_VIEW_TYPE;
+                break;
+
+            default:
+                type = -1;
+        }
+
+        return type;
+    }
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.home_frag_rv_row, parent, false);
+        View view;
+
+        switch (viewType) {
+            case EVENT_VIEW_TYPE:
+                view = inflater.inflate(R.layout.home_frag_rv_row_event, parent, false);
+                break;
+
+            case GOAL_VIEW_TYPE:
+                view = inflater.inflate(R.layout.home_frag_rv_row_goal, parent, false);
+                break;
+
+            case REMINDER_VIEW_TYPE:
+                view = inflater.inflate(R.layout.home_frag_rv_row_reminder, parent, false);
+                break;
+
+            default:
+                view = inflater.inflate(R.layout.home_frag_rv_row_default, parent, false);
+        }
+
         return new ViewHolder(view);
     }
 

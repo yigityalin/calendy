@@ -26,7 +26,7 @@
             android:background="@drawable/home_frag_rv_bg_top">
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/home_frag_rv_row_type"
                 android:gravity="center"
@@ -34,7 +34,8 @@
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"/>
