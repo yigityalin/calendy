@@ -20,7 +20,7 @@ Mehmet Kağan İlbak 22002379 - Implemented navigation, floating action menu and
 implemented Date/TimePickerButton, User, Task (and its subclasses), Calendar classes, implemented the search and its ui,
 Firebase integration, settings menu, edit profile menu, view each calendar menu, fixed various activity UIs.
 
-Emir Kurban 21902653 -
+Emir Kurban 21902653 - Updated all page UI and fragment UIs to give a modern look to the app.
 
 Yiğit Yalın 22002178 - Implemented calendar UI for month and day views in home fragment; implemented UI for Calendars fragment; implemented click listeners for home and calendars fragment.
 
