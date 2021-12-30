@@ -1,4 +1,4 @@
-Group: G2K
+Freshman Group Project
 
 Title: Calendy: Utility Calendar
 
@@ -10,21 +10,6 @@ created and shared between users.
 
 Status:
 Mostly completed but subscribing to other people's calendars through search is left.
-
-Contributions:
-
-Cem Gülümser 22003430 - Implemented Welcome Page (Start Activity), Sign Up and Log In interfaces 
-and their activities. Set navigation from welcome page to login or signup page.
-
-Mehmet Kağan İlbak 22002379 - Implemented navigation, floating action menu and its activities;
-implemented Date/TimePickerButton, User, Task (and its subclasses), Calendar classes, implemented the search and its ui,
-Firebase integration, settings menu, edit profile menu, view each calendar menu, fixed various activity UIs.
-
-Emir Kurban 21902653 - Updated all page UI and fragment UIs to give a modern look to the app.
-
-Yiğit Yalın 22002178 - Implemented calendar UI for month and day views in home fragment; implemented UI for Calendars fragment; implemented click listeners for home and calendars fragment.
-
-Yarkın Ergin 21902462 - Added preferences for settings ui.
 
 How to run:
 1- Open the project with Android Stuido
